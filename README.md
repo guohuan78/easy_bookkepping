@@ -2,6 +2,8 @@
 
 持续开发中……
 
+大三上数据库实验大作业
+
 根据教程[1-简约记账app的介绍_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV1Ey4y1k73N?p=1)来开发，加入自己对软件功能的想法。
 
 ## step 0
