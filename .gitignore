@@ -1,5 +1,6 @@
 *.iml
 .gradle
+easy_bookkeeping.jks
 /local.properties
 /.idea/caches
 /.idea/libraries
