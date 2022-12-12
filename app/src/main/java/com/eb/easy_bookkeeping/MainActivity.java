@@ -51,12 +51,12 @@ public class MainActivity extends AppCompatActivity {
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.main_iv_search:
-//                Intent it = new Intent(this, SearchActivity.class);  //跳转界面
-//                startActivity(it);
+                Intent it = new Intent(this, SearchActivity.class);  //跳转界面
+                startActivity(it);
                 break;
             case R.id.main_iv_bill:
-                Intent it = new Intent(this, HistoryActivity.class);  //跳转界面
-                startActivity(it);
+                Intent it1 = new Intent(this, HistoryActivity.class);  //跳转界面
+                startActivity(it1);
                 break;
             case R.id.main_tv_appname:
                 break;

@@ -19,9 +19,9 @@ import com.eb.easy_bookkeeping.R;
 import com.eb.easy_bookkeeping.db.AccountBean;
 import com.eb.easy_bookkeeping.db.DBManager;
 import com.eb.easy_bookkeeping.db.TypeBean;
-//import com.eb.easy_bookkeeping.utils.BeiZhuDialog;
+import com.eb.easy_bookkeeping.utils.BeiZhuDialog;
 import com.eb.easy_bookkeeping.utils.KeyBoardUtils;
-//import com.eb.easy_bookkeeping.utils.SelectTimeDialog;
+import com.eb.easy_bookkeeping.utils.SelectTimeDialog;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -144,14 +144,14 @@ public abstract class BaseRecordFragment extends Fragment implements View.OnClic
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.frag_record_tv_time:
-//                showTimeDialog();
+                showTimeDialog();
                 break;
             case R.id.frag_record_tv_beizhu:
-//                showBZDialog();
+                showBZDialog();
                 break;
         }
     }
-     /*弹出显示时间的对话框
+     //弹出显示时间的对话框
     private void showTimeDialog() {
         SelectTimeDialog dialog = new SelectTimeDialog(getContext());
         dialog.show();
@@ -166,9 +166,9 @@ public abstract class BaseRecordFragment extends Fragment implements View.OnClic
                 accountBean.setDay(day);
             }
         });
-    }*/
+    }
 
-    /* 弹出备注对话框
+    /* 弹出备注对话框*/
     public  void showBZDialog(){
         final BeiZhuDialog dialog = new BeiZhuDialog(getContext());
         dialog.show();
@@ -184,5 +184,5 @@ public abstract class BaseRecordFragment extends Fragment implements View.OnClic
                 dialog.cancel();
             }
         });
-    }*/
+    }
 }
