@@ -31,19 +31,29 @@
             app:tabTextColor="@color/grey_7D7D7D"
             app:tabSelectedTextColor="@color/black"
             app:tabIndicatorColor="@color/black"/>
+        <ImageView
+            android:id="@+id/main_iv_bill"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="30dp"
+            android:padding="10dp"
+            android:onClick="onClick"
+            android:src="@mipmap/it_jilu" />
 
         <ImageView
             android:id="@+id/main_iv_search"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_alignParentRight="true"
-            android:padding="10dp"
             android:onClick="onClick"
+            android:padding="10dp"
             android:src="@mipmap/search" />
 
     </RelativeLayout>
+
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/record_vp"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent" />
 </LinearLayout>

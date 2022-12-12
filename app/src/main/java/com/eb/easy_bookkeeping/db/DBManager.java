@@ -53,4 +53,46 @@ public class DBManager {
         values.put("kind",bean.getKind());
         db.insert("accounttb",null,values);
     }
+    /*
+     * 根据传入的id，删除accounttb表当中的一条数据
+     * */
+    public static int deleteItemFromAccounttbById(int id){
+        int i = db.delete("accounttb", "id=?", new String[]{id + ""});
+        return i;
+    }
+    /**
+     * 查询记账的表当中有几个年份信息
+     * */
+    public static List<Integer>getYearListFromAccounttb(){
+        List<Integer>list = new ArrayList<>();
+        String sql = "select distinct(year) from accounttb order by year asc";
+        Cursor cursor = db.rawQuery(sql, null);
+        while (cursor.moveToNext()) {
+            int year = cursor.getInt(cursor.getColumnIndex("year"));
+            list.add(year);
+        }
+        return list;
+    }
+    /*
+     * 获取记账表当中某一月的所有支出或者收入情况
+     * */
+    public static List<AccountBean>getAccountListOneMonthFromAccounttb(int year,int month){
+        List<AccountBean>list = new ArrayList<>();
+        String sql = "select * from accounttb where year=? and month=? order by id desc";
+        Cursor cursor = db.rawQuery(sql, new String[]{year + "", month + ""});
+        //遍历符合要求的每一行数据
+        while (cursor.moveToNext()) {
+            int id = cursor.getInt(cursor.getColumnIndex("id"));
+            String typename = cursor.getString(cursor.getColumnIndex("typename"));
+            String beizhu = cursor.getString(cursor.getColumnIndex("beizhu"));
+            String time = cursor.getString(cursor.getColumnIndex("time"));
+            int sImageId = cursor.getInt(cursor.getColumnIndex("sImageId"));
+            int kind = cursor.getInt(cursor.getColumnIndex("kind"));
+            float money = cursor.getFloat(cursor.getColumnIndex("money"));
+            int day = cursor.getInt(cursor.getColumnIndex("day"));
+            AccountBean accountBean = new AccountBean(id, typename, sImageId, beizhu, money, time, year, month, day, kind);
+            list.add(accountBean);
+        }
+        return list;
+    }
 }

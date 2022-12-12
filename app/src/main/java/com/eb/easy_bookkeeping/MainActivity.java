@@ -54,6 +54,10 @@ public class MainActivity extends AppCompatActivity {
 //                Intent it = new Intent(this, SearchActivity.class);  //跳转界面
 //                startActivity(it);
                 break;
+            case R.id.main_iv_bill:
+                Intent it = new Intent(this, HistoryActivity.class);  //跳转界面
+                startActivity(it);
+                break;
             case R.id.main_tv_appname:
                 break;
         }
