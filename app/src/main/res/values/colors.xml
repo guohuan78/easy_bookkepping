@@ -8,4 +8,8 @@
     <color name="grey_7D7D7D">#7D7D7D</color>
     <color name="white">#ffffff</color>
     <color name="green_006400">#006400</color>
+    <color name="铜绿">#2bae85</color>
+    <color name="穹灰">#c4d7d6</color>
+    <color name="草原远绿">#9abeaf</color>
+    <color name="key_selected_color">#9abeaf</color>
 </resources>

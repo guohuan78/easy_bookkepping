@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
@@ -16,6 +15,7 @@ import java.util.List;
 import com.eb.easy_bookkeeping.frag_record.IncomeFragment;
 import com.eb.easy_bookkeeping.frag_record.OutcomeFragment;
 import com.eb.easy_bookkeeping.adapter.RecordPagerAdapter;
+import com.eb.easy_bookkeeping.utils.MoreDialog;
 
 public class MainActivity extends AppCompatActivity {
     TabLayout tabLayout;
@@ -50,13 +50,10 @@ public class MainActivity extends AppCompatActivity {
 
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.main_iv_search:
-                Intent it = new Intent(this, SearchActivity.class);  //跳转界面
-                startActivity(it);
-                break;
-            case R.id.main_iv_bill:
-                Intent it1 = new Intent(this, HistoryActivity.class);  //跳转界面
-                startActivity(it1);
+            case R.id.main_btn_more:
+                MoreDialog moreDialog = new MoreDialog(this);
+                moreDialog.show();
+                moreDialog.setDialogSize();
                 break;
             case R.id.main_tv_appname:
                 break;

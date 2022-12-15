@@ -9,7 +9,8 @@
     <RelativeLayout
         android:id="@+id/main_top_layout"
         android:layout_width="match_parent"
-        android:layout_height="50dp">
+        android:layout_height="50dp"
+        android:background="@color/铜绿">
         <TextView
             android:id="@+id/main_tv_appname"
             android:text="@string/app_name"
@@ -32,24 +33,13 @@
             app:tabSelectedTextColor="@color/black"
             app:tabIndicatorColor="@color/black"/>
         <ImageView
-            android:id="@+id/main_iv_bill"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_alignParentRight="true"
-            android:layout_marginRight="30dp"
-            android:padding="10dp"
-            android:onClick="onClick"
-            android:src="@mipmap/it_jilu" />
-
-        <ImageView
-            android:id="@+id/main_iv_search"
+            android:id="@+id/main_btn_more"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_alignParentRight="true"
             android:onClick="onClick"
             android:padding="10dp"
-            android:src="@mipmap/search" />
-
+            android:src="@mipmap/more" />
     </RelativeLayout>
 
     <androidx.viewpager.widget.ViewPager

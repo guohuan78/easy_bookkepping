@@ -12,6 +12,9 @@
         android:theme="@style/AppTheme">
         <activity android:name=".HistoryActivity" />
         <activity android:name=".SearchActivity" />
+        <activity android:name=".AboutActivity" />
+        <activity android:name=".MonthChartActivity" />
+        <activity android:name=".SettingActivity" />
         <activity android:name=".MainActivity" android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
