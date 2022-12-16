@@ -7,7 +7,7 @@
         android:id="@+id/item_recordfrag_iv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:src="@mipmap/ic_qita_fs"/>
+        android:src="@mipmap/ic_other"/>
     <TextView
         android:id="@+id/item_recordfrag_tv"
         android:layout_width="match_parent"

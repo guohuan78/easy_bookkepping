@@ -3,7 +3,7 @@ package com.eb.easy_bookkeeping.db;
 public class AccountBean {
     int id;
     String typename;   //类型
-    int sImageId;   //被选中类型图片
+    int ImageId;   //类型图片
     String beizhu;   //备注
     float money;  //价格
     String time ;  //保存时间字符串
@@ -28,12 +28,12 @@ public class AccountBean {
         this.typename = typename;
     }
 
-    public int getsImageId() {
-        return sImageId;
+    public int getImageId() {
+        return ImageId;
     }
 
-    public void setsImageId(int sImageId) {
-        this.sImageId = sImageId;
+    public void setImageId(int ImageId) {
+        this.ImageId = ImageId;
     }
 
     public String getBeizhu() {
@@ -95,10 +95,10 @@ public class AccountBean {
     public AccountBean() {
     }
 
-    public AccountBean(int id, String typename, int sImageId, String beizhu, float money, String time, int year, int month, int day, int kind) {
+    public AccountBean(int id, String typename, int ImageId, String beizhu, float money, String time, int year, int month, int day, int kind) {
         this.id = id;
         this.typename = typename;
-        this.sImageId = sImageId;
+        this.ImageId = ImageId;
         this.beizhu = beizhu;
         this.money = money;
         this.time = time;

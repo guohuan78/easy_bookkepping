@@ -31,10 +31,9 @@ public class DBManager {
         while (cursor.moveToNext()) {
             String typename = cursor.getString(cursor.getColumnIndex("typename"));
             int imageId = cursor.getInt(cursor.getColumnIndex("imageId"));
-            int sImageId = cursor.getInt(cursor.getColumnIndex("sImageId"));
-            int kind1 = cursor.getInt(cursor.getColumnIndex("kind"));
+//            int kind1 = cursor.getInt(cursor.getColumnIndex("kind"));
             int id = cursor.getInt(cursor.getColumnIndex("id"));
-            TypeBean typeBean = new TypeBean(id, typename, imageId, sImageId, kind);
+            TypeBean typeBean = new TypeBean(id, typename, imageId, kind);
             list.add(typeBean);
         }
         return list;
@@ -45,7 +44,7 @@ public class DBManager {
     public static void insertItemToAccounttb(AccountBean bean){
         ContentValues values = new ContentValues();
         values.put("typename",bean.getTypename());
-        values.put("sImageId",bean.getsImageId());
+        values.put("ImageId",bean.getImageId());
         values.put("beizhu",bean.getBeizhu());
         values.put("money",bean.getMoney());
         values.put("time",bean.getTime());
@@ -88,11 +87,11 @@ public class DBManager {
             String typename = cursor.getString(cursor.getColumnIndex("typename"));
             String beizhu = cursor.getString(cursor.getColumnIndex("beizhu"));
             String time = cursor.getString(cursor.getColumnIndex("time"));
-            int sImageId = cursor.getInt(cursor.getColumnIndex("sImageId"));
+            int ImageId = cursor.getInt(cursor.getColumnIndex("ImageId"));
             int kind = cursor.getInt(cursor.getColumnIndex("kind"));
             float money = cursor.getFloat(cursor.getColumnIndex("money"));
             int day = cursor.getInt(cursor.getColumnIndex("day"));
-            AccountBean accountBean = new AccountBean(id, typename, sImageId, beizhu, money, time, year, month, day, kind);
+            AccountBean accountBean = new AccountBean(id, typename, ImageId, beizhu, money, time, year, month, day, kind);
             list.add(accountBean);
         }
         return list;
@@ -109,13 +108,13 @@ public class DBManager {
             String typename = cursor.getString(cursor.getColumnIndex("typename"));
             String bz = cursor.getString(cursor.getColumnIndex("beizhu"));
             String time = cursor.getString(cursor.getColumnIndex("time"));
-            int sImageId = cursor.getInt(cursor.getColumnIndex("sImageId"));
+            int ImageId = cursor.getInt(cursor.getColumnIndex("ImageId"));
             int kind = cursor.getInt(cursor.getColumnIndex("kind"));
             float money = cursor.getFloat(cursor.getColumnIndex("money"));
             int year = cursor.getInt(cursor.getColumnIndex("year"));
             int month = cursor.getInt(cursor.getColumnIndex("month"));
             int day = cursor.getInt(cursor.getColumnIndex("day"));
-            AccountBean accountBean = new AccountBean(id, typename, sImageId, bz, money, time, year, month, day, kind);
+            AccountBean accountBean = new AccountBean(id, typename, ImageId, bz, money, time, year, month, day, kind);
             list.add(accountBean);
         }
         return list;
@@ -183,16 +182,16 @@ public class DBManager {
     public static List<ChartItemBean>getChartListFromAccounttb(int year,int month,int kind){
         List<ChartItemBean>list = new ArrayList<>();
         float sumMoneyOneMonth = getSumMoneyOneMonth(year, month, kind);  //求出支出或者收入总钱数
-        String sql = "select typename,sImageId,sum(money)as total from accounttb where year=? and month=? and kind=? group by typename " +
+        String sql = "select typename,ImageId,sum(money)as total from accounttb where year=? and month=? and kind=? group by typename " +
                 "order by total desc";
         Cursor cursor = db.rawQuery(sql, new String[]{year + "", month + "", kind + ""});
         while (cursor.moveToNext()) {
-            int sImageId = cursor.getInt(cursor.getColumnIndex("sImageId"));
+            int ImageId = cursor.getInt(cursor.getColumnIndex("ImageId"));
             String typename = cursor.getString(cursor.getColumnIndex("typename"));
             float total = cursor.getFloat(cursor.getColumnIndex("total"));
             //计算所占百分比  total /sumMonth
             float ratio = FloatUtils.div(total,sumMoneyOneMonth);
-            ChartItemBean bean = new ChartItemBean(sImageId, typename, ratio, total);
+            ChartItemBean bean = new ChartItemBean(ImageId, typename, ratio, total);
             list.add(bean);
         }
         return list;

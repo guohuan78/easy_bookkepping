@@ -55,7 +55,7 @@ public class AccountAdapter extends BaseAdapter {
             holder = (ViewHolder) convertView.getTag();
         }
         AccountBean bean = mDatas.get(position);
-        holder.typeIv.setImageResource(bean.getsImageId());
+        holder.typeIv.setImageResource(bean.getImageId());
         holder.typeTv.setText(bean.getTypename());
         holder.beizhuTv.setText(bean.getBeizhu());
         holder.moneyTv.setText("￥ "+bean.getMoney());

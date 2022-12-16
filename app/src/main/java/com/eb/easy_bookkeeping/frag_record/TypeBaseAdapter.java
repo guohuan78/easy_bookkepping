@@ -43,12 +43,7 @@ public class TypeBaseAdapter extends BaseAdapter {
         //获取指定位置的数据源
         TypeBean typeBean = mDatas.get(position);
         tv.setText(typeBean.getTypename());
-//        判断当前位置是否为选中位置，如果是选中位置，就设置为带颜色的图片，否则为灰色图片
-        if (selectPos == position) {
-            iv.setImageResource(typeBean.getSimageId());
-        }else{
-            iv.setImageResource(typeBean.getImageId());
-        }
+        iv.setImageResource(typeBean.getImageId());
         return convertView;
     }
 }

@@ -47,8 +47,8 @@ public abstract class BaseRecordFragment extends Fragment implements View.OnClic
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         accountBean = new AccountBean();   //创建对象
-        accountBean.setTypename("其他");
-        accountBean.setsImageId(R.mipmap.ic_qita_fs);
+        accountBean.setTypename("三餐");
+        accountBean.setImageId(R.mipmap.ic_meal);
     }
 
     @Override
@@ -91,9 +91,9 @@ public abstract class BaseRecordFragment extends Fragment implements View.OnClic
                 String typename = typeBean.getTypename();
                 typeTv.setText(typename);
                 accountBean.setTypename(typename);
-                int simageId = typeBean.getSimageId();
-                typeIv.setImageResource(simageId);
-                accountBean.setsImageId(simageId);
+                int ImageId = typeBean.getImageId();
+                typeIv.setImageResource(ImageId);
+                accountBean.setImageId(ImageId);
             }
         });
     }

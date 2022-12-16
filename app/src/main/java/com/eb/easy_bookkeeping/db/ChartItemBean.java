@@ -1,7 +1,7 @@
 package com.eb.easy_bookkeeping.db;
 
 public class ChartItemBean {
-    int sImageId;
+    int ImageId;
     String type;
     float ratio;   //所占比例
     float totalMoney;  //此项的总钱数
@@ -9,8 +9,8 @@ public class ChartItemBean {
     public ChartItemBean() {
     }
 
-    public void setsImageId(int sImageId) {
-        this.sImageId = sImageId;
+    public void setImageId(int ImageId) {
+        this.ImageId = ImageId;
     }
 
     public void setType(String type) {
@@ -25,8 +25,8 @@ public class ChartItemBean {
         this.totalMoney = totalMoney;
     }
 
-    public int getsImageId() {
-        return sImageId;
+    public int getImageId() {
+        return ImageId;
     }
 
     public String getType() {
@@ -41,8 +41,8 @@ public class ChartItemBean {
         return totalMoney;
     }
 
-    public ChartItemBean(int sImageId, String type, float ratio, float totalMoney) {
-        this.sImageId = sImageId;
+    public ChartItemBean(int ImageId, String type, float ratio, float totalMoney) {
+        this.ImageId = ImageId;
         this.type = type;
         this.ratio = ratio;
         this.totalMoney = totalMoney;

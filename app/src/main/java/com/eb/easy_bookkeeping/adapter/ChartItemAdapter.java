@@ -54,7 +54,7 @@ public class ChartItemAdapter extends BaseAdapter {
         }
 //        获取显示内容
         ChartItemBean bean = mDatas.get(position);
-        holder.iv.setImageResource(bean.getsImageId());
+        holder.iv.setImageResource(bean.getImageId());
         holder.typeTv.setText(bean.getType());
         float ratio = bean.getRatio();
         String pert = FloatUtils.ratioToPercent(ratio);

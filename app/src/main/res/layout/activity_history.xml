@@ -47,11 +47,12 @@
             android:textColor="@color/green_006400"
             android:text="@string/history_info"/>
     </RelativeLayout>
+
     <ListView
         android:id="@+id/history_lv"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="10dp"
         android:divider="@null"
-        android:dividerHeight="5dp"/>
+        android:dividerHeight="5dp"
+        android:padding="10dp" />
 </LinearLayout>

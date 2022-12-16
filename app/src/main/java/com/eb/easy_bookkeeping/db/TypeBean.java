@@ -3,8 +3,7 @@ package com.eb.easy_bookkeeping.db;
 public class TypeBean {
     int id;
     String typename;   //类型名称
-    int imageId;    //未被选中图片id
-    int simageId;    //被选中图片id
+    int ImageId;    //图片id
     int kind;     //收入-1  支出-0
 
     public int getId() {
@@ -24,19 +23,11 @@ public class TypeBean {
     }
 
     public int getImageId() {
-        return imageId;
+        return ImageId;
     }
 
-    public void setImageId(int imageId) {
-        this.imageId = imageId;
-    }
-
-    public int getSimageId() {
-        return simageId;
-    }
-
-    public void setSimageId(int simageId) {
-        this.simageId = simageId;
+    public void setImageId(int ImageId) {
+        this.ImageId = ImageId;
     }
 
     public int getKind() {
@@ -50,11 +41,10 @@ public class TypeBean {
     public TypeBean() {
     }
 
-    public TypeBean(int id, String typename, int imageId, int simageId, int kind) {
+    public TypeBean(int id, String typename, int ImageId, int kind) {
         this.id = id;
         this.typename = typename;
-        this.imageId = imageId;
-        this.simageId = simageId;
+        this.ImageId = ImageId;
         this.kind = kind;
     }
 }

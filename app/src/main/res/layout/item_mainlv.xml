@@ -8,7 +8,7 @@
         android:id="@+id/item_mainlv_iv"
         android:layout_width="45dp"
         android:layout_height="45dp"
-        android:src="@mipmap/ic_yanjiu_fs"/>
+        android:src="@mipmap/ic_other"/>
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -19,14 +19,14 @@
             android:id="@+id/item_mainlv_tv_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="烟酒茶"
+            android:text="其他"
             android:textStyle="bold"
             android:textSize="16sp"/>
         <TextView
             android:id="@+id/item_mainlv_tv_beizhu"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="华子一盒"
+            android:text="备注"
             android:layout_marginTop="5dp"
             android:textSize="12sp"/>
     </LinearLayout>
