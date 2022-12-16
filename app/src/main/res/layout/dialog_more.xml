@@ -11,19 +11,19 @@
         <Button
             android:id="@+id/dialog_more_btn_info"
             style="@style/dialogmoreStyle"
-            android:drawableTop="@mipmap/it_xiqing"
+            android:drawableTop="@mipmap/it_charts"
             android:text="@string/account_info" />
         <Button
             android:id="@+id/dialog_more_btn_record"
             style="@style/dialogmoreStyle"
-            android:drawableTop="@mipmap/it_jilu"
+            android:drawableTop="@mipmap/it_bill"
             android:text="@string/history_record"
             android:layout_marginLeft="15dp"
             android:layout_marginRight="15dp"/>
         <Button
             android:id="@+id/dialog_more_btn_search"
             style="@style/dialogmoreStyle"
-            android:drawableTop="@mipmap/search"
+            android:drawableTop="@mipmap/it_search"
             android:text="@string/history_search" />
     </LinearLayout>
     <LinearLayout
@@ -35,13 +35,13 @@
         <Button
             android:id="@+id/dialog_more_btn_setting"
             style="@style/dialogmoreStyle"
-            android:drawableTop="@mipmap/it_shezhi"
+            android:drawableTop="@mipmap/it_settings"
             android:layout_marginRight="15dp"
             android:text="@string/setting"/>
         <Button
             android:id="@+id/dialog_more_btn_about"
             style="@style/dialogmoreStyle"
-            android:drawableTop="@mipmap/it_guanyu"
+            android:drawableTop="@mipmap/it_about"
             android:layout_marginRight="15dp"
             android:text="@string/about"/>
 
@@ -50,7 +50,7 @@
         android:id="@+id/dialog_more_iv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@mipmap/ih_error"
+        android:src="@mipmap/it_close"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="10dp"/>
 </LinearLayout>

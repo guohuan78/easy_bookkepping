@@ -33,7 +33,7 @@
             android:id="@+id/search_iv_sh"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@mipmap/search"
+            android:src="@mipmap/it_search"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
             android:layout_marginRight="20dp"

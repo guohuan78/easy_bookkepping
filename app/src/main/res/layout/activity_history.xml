@@ -26,7 +26,7 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_marginRight="10dp"
-            android:src="@mipmap/it_rili"
+            android:src="@mipmap/it_calendar"
             android:layout_alignParentRight="true"
             android:onClick="onClick"/>
     </RelativeLayout>

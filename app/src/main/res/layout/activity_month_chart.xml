@@ -25,7 +25,7 @@
             android:id="@+id/chart_iv_rili"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:src="@mipmap/it_rili"
+            android:src="@mipmap/it_calendar"
             android:layout_alignParentRight="true"
             android:layout_marginRight="10dp"
             android:onClick="onClick"/>

@@ -39,7 +39,7 @@
             android:layout_alignParentRight="true"
             android:onClick="onClick"
             android:padding="10dp"
-            android:src="@mipmap/more" />
+            android:src="@mipmap/it_more" />
     </RelativeLayout>
 
     <androidx.viewpager.widget.ViewPager

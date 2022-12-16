@@ -14,9 +14,9 @@
     <string name="cancel">取消</string>
     <string name="about">关于</string>
     <string name="setting">设置</string>
-    <string name="history_record">账单记录</string>
-    <string name="history_search">账单搜索</string>
-    <string name="account_info">账单详情</string>
+    <string name="history_record">记录</string>
+    <string name="history_search">搜索</string>
+    <string name="account_info">图表</string>
     <string name="please_input_time">请输入时间(24小时制)</string>
     <string name="please_search_info">请输入搜索信息</string>
     <string name="date_empty">数据为空，无此类记录~~</string>

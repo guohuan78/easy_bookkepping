@@ -23,6 +23,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/dialog_calendar_iv"
-        android:src="@mipmap/ih_error"
+        android:src="@mipmap/it_close"
         android:padding="20dp"/>
 </LinearLayout>
