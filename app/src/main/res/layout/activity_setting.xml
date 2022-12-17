@@ -32,6 +32,16 @@
         android:textStyle="bold"
         android:padding="15dp"
         android:background="@color/white"/>
+    <TextView
+        android:id="@+id/setting_tv_engel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/engel_coefficient"
+        android:onClick="onClick"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:padding="15dp"
+        android:background="@color/white"/>
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"

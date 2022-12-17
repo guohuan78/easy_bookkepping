@@ -24,6 +24,12 @@ public class DBOpenHelper extends SQLiteOpenHelper {
         sql = "create table accounttb(id integer primary key autoincrement,typename varchar(10),ImageId integer,beizhu varchar(80),money float," +
                 "time varchar(60),year integer,month integer,day integer,kind integer)";
         db.execSQL(sql);
+        createFoodCostSumView(db);
+    }
+
+    private void createFoodCostSumView(SQLiteDatabase db) {
+        String sql = "create view foodcostsumview as select sum(money) as foodcost from accounttb where kind = 0 and typename in (select typename from typetb where id = 1 )";
+        db.execSQL(sql);
     }
 
     private void insertType(SQLiteDatabase db) {

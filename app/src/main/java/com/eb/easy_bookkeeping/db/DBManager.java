@@ -81,6 +81,20 @@ public class DBManager {
         }
         return list;
     }
+    /**
+     * 获取恩格尔系数值
+     * */
+    public static float getEngelCoefficient(){
+        String sql = "select * from foodcostsumview";
+        Cursor cursor = db.rawQuery(sql, null);
+        cursor.moveToNext();
+        float foodcost = cursor.getFloat(cursor.getColumnIndex("foodcost"));
+        sql = "select sum(money) as sum from accounttb where kind = 0";
+        cursor = db.rawQuery(sql, null);
+        cursor.moveToNext();
+        float sum = cursor.getFloat(cursor.getColumnIndex("sum"));
+        return foodcost/sum;
+    }
     /*
      * 获取记账表当中某一月的所有支出或者收入情况
      * */
