@@ -5,6 +5,7 @@ import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -42,9 +43,20 @@ public class HistoryActivity extends AppCompatActivity {
         timeTv.setText(year+"年"+month+"月");
         loadData(year,month);
         setLVClickListener();
+        setLVLongClickListener();
+    }
+    /*设置ListView每一个item的点击事件*/
+    private void setLVClickListener() {
+        historyLv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                AccountBean accountBean = mDatas.get(position);
+                updateItem(accountBean);
+            }
+        });
     }
     /*设置ListView每一个item的长按事件*/
-    private void setLVClickListener() {
+    private void setLVLongClickListener() {
         historyLv.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
@@ -53,6 +65,24 @@ public class HistoryActivity extends AppCompatActivity {
                 return false;
             }
         });
+    }
+
+    private void updateItem(final AccountBean accountBean) {
+        final int delId = accountBean.getId();
+        final EditText inputServer = new EditText(this);
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("提示信息").setMessage("修改此记录的备注为：")
+                .setView(inputServer)
+                .setNegativeButton("取消",null)
+                .setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        DBManager.updateItemBeizhuFromAccounttbById(delId, inputServer.getText().toString());
+                        // 刷新界面
+                        loadData(year, month);
+                    }
+                });
+        builder.create().show();
     }
 
     private void deleteItem(final AccountBean accountBean) {
