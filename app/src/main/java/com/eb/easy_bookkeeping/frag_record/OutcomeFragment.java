@@ -53,10 +53,10 @@ public class OutcomeFragment extends BaseRecordFragment {
         List<TypeBean> outlist = DBManager.getTypeList(0);
         typeList.addAll(outlist);
         adapter.notifyDataSetChanged();
-        typeTv.setText("三餐");
-        typeIv.setImageResource(R.mipmap.ic_meal);
-        accountBean.setTypename("三餐");
-        accountBean.setImageId(R.mipmap.ic_meal);
+        typeTv.setText(outlist.get(0).getTypename());
+        typeIv.setImageResource(outlist.get(0).getImageId());
+        accountBean.setTypename(outlist.get(0).getTypename());
+        accountBean.setImageId(outlist.get(0).getImageId());
     }
 
     @Override

@@ -25,6 +25,12 @@ public class DBOpenHelper extends SQLiteOpenHelper {
                 "time varchar(60),year integer,month integer,day integer,kind integer)";
         db.execSQL(sql);
         createFoodCostSumView(db);
+        createTriggerUpdateTypename(db);
+    }
+
+    private void createTriggerUpdateTypename(SQLiteDatabase db) {
+        String sql = "create trigger updateTypename after update on typetb begin update accounttb set typename = new.typename where typename = old.typename; end ;";
+        db.execSQL(sql);
     }
 
     private void createFoodCostSumView(SQLiteDatabase db) {

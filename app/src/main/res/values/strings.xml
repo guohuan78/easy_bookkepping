@@ -39,7 +39,8 @@
 
     <string name="history_info">本月账单记录</string>
     <string name="clear_all">清空所有记录</string>
-    <string name="engel_coefficient">恩格尔系数视图</string>
+    <string name="engel_coefficient">恩格尔系数计算</string>
+    <string name="change_typename">更改类别名称</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="not_data">暂无数据</string>

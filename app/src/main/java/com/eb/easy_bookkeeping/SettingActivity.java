@@ -4,11 +4,13 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.eb.easy_bookkeeping.db.DBManager;
+import com.eb.easy_bookkeeping.frag_record.BaseRecordFragment;
 
 public class SettingActivity extends AppCompatActivity {
 
@@ -27,9 +29,42 @@ public class SettingActivity extends AppCompatActivity {
                 showDeleteDialog();
                 break;
             case R.id.setting_tv_engel:
-                showEngelCoefficient();
+                showEngelCoefficientDialog();
+                break;
+            case R.id.setting_tv_change_typename:
+                changeTypenameDialog();
                 break;
         }
+    }
+
+    private void changeTypenameDialog() {
+        final EditText inputServerSrc = new EditText(this);
+        final EditText inputServerDes = new EditText(this);
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("修改类别名称")
+                .setMessage("被修改的类别名称为：")
+                .setView(inputServerSrc)
+                .setNegativeButton("取消",null)
+                .setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        AlertDialog.Builder builder = new AlertDialog.Builder(SettingActivity.this);
+                        builder.setTitle("修改类别名称")
+                                .setMessage("要修改为：")
+                                .setView(inputServerDes)
+                                .setNegativeButton("取消", null)
+                                .setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        DBManager.updateTypenameFromTypetbByTypename(inputServerSrc.getText().toString(), inputServerDes.getText().toString());
+                                        Toast.makeText(SettingActivity.this,"修改成功！",Toast.LENGTH_SHORT).show();
+                                    }
+                                });
+                        builder.create().show();
+                    }
+
+                });
+        builder.create().show();
     }
 
     private void showDeleteDialog() {
@@ -47,9 +82,10 @@ public class SettingActivity extends AppCompatActivity {
         builder.create().show();
     }
 
-    private void showEngelCoefficient() {
+    private void showEngelCoefficientDialog() {
         float engelCoefficient = DBManager.getEngelCoefficient();
         String hint;
+        String str;
         if (engelCoefficient < 0.3) {
             hint = "最富裕！钱花不完可以多多打赏哦~";
         } else if (engelCoefficient < 0.4) {
@@ -61,9 +97,13 @@ public class SettingActivity extends AppCompatActivity {
         } else {
             hint = "贫困，脱贫攻坚战漏网之鱼嘛呜呜呜";
         }
+        str = String.format("%.3f", engelCoefficient) + "\n" + hint;
+        if(Float.isNaN(engelCoefficient)) {
+            str = "咦？找不到支出记录呢，快去记一笔叭！";
+        }
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("恩格尔系数为：")
-                .setMessage(String.format("%.3f", engelCoefficient) + "\n" + hint)
+                .setMessage(str)
                 .setNegativeButton("确定", null);
         builder.create().show();
     }

@@ -49,6 +49,13 @@ public abstract class BaseRecordFragment extends Fragment implements View.OnClic
     }
 
     @Override
+    public void onStart() {
+        super.onStart();
+        // 返回主界面时刷新数据
+        loadDataToGV();
+    }
+
+    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment

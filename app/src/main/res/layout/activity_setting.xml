@@ -22,6 +22,10 @@
             android:textSize="18sp"
             android:layout_centerInParent="true"/>
     </RelativeLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/grey_7D7D7D"/>
     <TextView
         android:id="@+id/setting_tv_clear"
         android:layout_width="match_parent"
@@ -32,11 +36,29 @@
         android:textStyle="bold"
         android:padding="15dp"
         android:background="@color/white"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/grey_7D7D7D"/>
     <TextView
         android:id="@+id/setting_tv_engel"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/engel_coefficient"
+        android:onClick="onClick"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:padding="15dp"
+        android:background="@color/white"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/grey_7D7D7D"/>
+    <TextView
+        android:id="@+id/setting_tv_change_typename"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/change_typename"
         android:onClick="onClick"
         android:textSize="16sp"
         android:textStyle="bold"

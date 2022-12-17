@@ -62,6 +62,13 @@ public class DBManager {
         return i;
     }
     /*
+     * 根据传入的旧类别名，改变typetb表中匹配的typename为新类别名
+     * */
+    public static void updateTypenameFromTypetbByTypename(String oldTypename, String newTypename){
+        String sql = "update typetb set typename = \"" + newTypename + "\" where typename = \"" + oldTypename + "\"";
+        db.execSQL(sql);
+    }
+    /*
      * 根据传入的id，改变accounttb表当中的一条数据的备注为传入值
      * */
     public static void updateItemBeizhuFromAccounttbById(int id, String beizhu){
