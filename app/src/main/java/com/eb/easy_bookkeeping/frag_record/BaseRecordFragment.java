@@ -17,7 +17,6 @@ import android.widget.TextView;
 
 import com.eb.easy_bookkeeping.R;
 import com.eb.easy_bookkeeping.db.AccountBean;
-import com.eb.easy_bookkeeping.db.DBManager;
 import com.eb.easy_bookkeeping.db.TypeBean;
 import com.eb.easy_bookkeeping.utils.BeiZhuDialog;
 import com.eb.easy_bookkeeping.utils.KeyBoardUtils;
@@ -47,8 +46,6 @@ public abstract class BaseRecordFragment extends Fragment implements View.OnClic
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         accountBean = new AccountBean();   //创建对象
-        accountBean.setTypename("三餐");
-        accountBean.setImageId(R.mipmap.ic_meal);
     }
 
     @Override
@@ -63,8 +60,9 @@ public abstract class BaseRecordFragment extends Fragment implements View.OnClic
         setGVListener(); //设置GridView每一项的点击事件
         return view;
     }
+
     /* 获取当前时间，显示在timeTv上*/
-    private void setInitTime() {
+    public void setInitTime() {
         Date date = new Date();
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy年MM月dd日 HH:mm");
         String time = sdf.format(date);
@@ -81,7 +79,7 @@ public abstract class BaseRecordFragment extends Fragment implements View.OnClic
     }
 
     /* 设置GridView每一项的点击事件*/
-    private void setGVListener() {
+    public void setGVListener() {
         typeGv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -90,6 +88,8 @@ public abstract class BaseRecordFragment extends Fragment implements View.OnClic
                 TypeBean typeBean = typeList.get(position);
                 String typename = typeBean.getTypename();
                 typeTv.setText(typename);
+                beizhuTv.setText("添加备注");
+                accountBean.setBeizhu("");
                 accountBean.setTypename(typename);
                 int ImageId = typeBean.getImageId();
                 typeIv.setImageResource(ImageId);
@@ -105,7 +105,7 @@ public abstract class BaseRecordFragment extends Fragment implements View.OnClic
         typeGv.setAdapter(adapter);
     }
 
-    private void initView(View view) {
+    public void initView(View view) {
         keyboardView = view.findViewById(R.id.frag_record_keyboard);
         moneyEt = view.findViewById(R.id.frag_record_et_money);
         typeIv = view.findViewById(R.id.frag_record_iv);

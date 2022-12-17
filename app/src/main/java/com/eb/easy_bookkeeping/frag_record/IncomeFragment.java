@@ -20,6 +20,8 @@ public class IncomeFragment extends BaseRecordFragment {
         adapter.notifyDataSetChanged();
         typeTv.setText("工资");
         typeIv.setImageResource(R.mipmap.ic_salary);
+        accountBean.setTypename("工资");
+        accountBean.setImageId(R.mipmap.ic_salary);
     }
 
     @Override
