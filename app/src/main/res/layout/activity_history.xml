@@ -2,8 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="@color/grey_f3f3f3">
+    android:orientation="vertical">
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="50dp">
@@ -12,8 +11,9 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:src="@mipmap/it_back"
-            android:layout_marginLeft="10dp"
-            android:onClick="onClick"/>
+            android:layout_marginStart="10dp"
+            android:onClick="onClick"
+            android:contentDescription="@string/back" />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -25,10 +25,11 @@
             android:id="@+id/history_iv_rili"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_marginRight="10dp"
+            android:layout_marginEnd="10dp"
             android:src="@mipmap/it_calendar"
-            android:layout_alignParentRight="true"
-            android:onClick="onClick"/>
+            android:layout_alignParentEnd="true"
+            android:onClick="onClick"
+            android:contentDescription="@string/calendar" />
     </RelativeLayout>
     <RelativeLayout
         android:layout_width="match_parent"
@@ -43,7 +44,7 @@
             android:id="@+id/history_tv_info"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
             android:textColor="@color/green_006400"
             android:text="@string/history_info"/>
     </RelativeLayout>

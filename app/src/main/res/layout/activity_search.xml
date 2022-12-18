@@ -2,8 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="@color/grey_f3f3f3">
+    android:orientation="vertical">
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="50dp">
@@ -12,21 +11,25 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:onClick="onClick"
-            android:layout_marginLeft="10dp"
-            android:src="@mipmap/it_back"/>
+            android:layout_marginStart="10dp"
+            android:src="@mipmap/it_back"
+            android:contentDescription="@string/back" />
         <EditText
             android:id="@+id/search_et"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_toRightOf="@id/search_iv_back"
+            android:layout_toEndOf="@id/search_iv_back"
             android:background="@drawable/dialog_btn_bg"
             android:layout_centerVertical="true"
             android:textSize="16sp"
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
-            android:paddingLeft="20dp"
-            android:layout_marginLeft="10dp"
-            android:hint="@string/please_search_info">
+            android:paddingEnd="0dp"
+            android:paddingStart="20dp"
+            android:layout_marginStart="10dp"
+            android:hint="@string/please_search_info"
+            android:inputType="text"
+            android:importantForAutofill="no">
             <requestFocus/>
         </EditText>
         <ImageView
@@ -34,10 +37,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@mipmap/it_search"
-            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
-            android:layout_marginRight="20dp"
-            android:onClick="onClick"/>
+            android:layout_marginEnd="20dp"
+            android:onClick="onClick"
+            android:contentDescription="@string/search" />
     </RelativeLayout>
     <ListView
         android:id="@+id/search_lv"

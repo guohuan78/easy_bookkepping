@@ -2,7 +2,6 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/grey_f3f3f3"
     android:orientation="vertical">
     <RelativeLayout
         android:layout_width="match_parent"
@@ -12,8 +11,9 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:src="@mipmap/it_back"
-            android:layout_marginLeft="10dp"
-            android:onClick="onClick"/>
+            android:layout_marginStart="10dp"
+            android:onClick="onClick"
+            android:contentDescription="@string/back" />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -26,9 +26,10 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:src="@mipmap/it_calendar"
-            android:layout_alignParentRight="true"
-            android:layout_marginRight="10dp"
-            android:onClick="onClick"/>
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="10dp"
+            android:onClick="onClick"
+            android:contentDescription="@string/calendar" />
     </RelativeLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -77,7 +78,7 @@
             android:textColor="@color/white"
             android:textStyle="bold"
             android:onClick="onClick"
-            android:layout_marginRight="10dp"/>
+            android:layout_marginEnd="10dp"/>
         <Button
             android:id="@+id/chart_btn_in"
             android:layout_width="wrap_content"
@@ -87,7 +88,7 @@
             android:textColor="@color/black"
             android:textStyle="bold"
             android:onClick="onClick"
-            android:layout_marginLeft="10dp"/>
+            android:layout_marginStart="10dp"/>
     </LinearLayout>
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/chart_vp"

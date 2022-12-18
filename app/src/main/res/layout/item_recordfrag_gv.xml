@@ -7,12 +7,13 @@
         android:id="@+id/item_recordfrag_iv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:src="@mipmap/ic_other"/>
+        android:src="@mipmap/ic_other"
+        android:contentDescription="@string/other" />
     <TextView
         android:id="@+id/item_recordfrag_tv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="其他"
+        android:text="@string/other"
         android:layout_marginTop="5dp"
         android:textSize="12sp"
         android:textColor="@color/grey_7D7D7D"

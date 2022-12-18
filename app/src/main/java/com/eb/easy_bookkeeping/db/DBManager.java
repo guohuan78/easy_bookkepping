@@ -36,6 +36,7 @@ public class DBManager {
             TypeBean typeBean = new TypeBean(id, typename, imageId, kind);
             list.add(typeBean);
         }
+        cursor.close();
         return list;
     }
     /*
@@ -62,6 +63,19 @@ public class DBManager {
         return i;
     }
     /*
+     * 根据传入的id，删除accounttb表当中的一条数据
+     * */
+    public static boolean hasTypenameInTypetb(String typename){
+        String sql = "select typename from typetb where typename = \"" + typename + "\"";
+        Cursor cursor = db.rawQuery(sql, null);
+        // 判断查询结果是否为空
+        if( cursor.getCount() == 0 ) {
+            return false;
+        }
+        cursor.close();
+        return true;
+    }
+    /*
      * 根据传入的旧类别名，改变typetb表中匹配的typename为新类别名
      * */
     public static void updateTypenameFromTypetbByTypename(String oldTypename, String newTypename){
@@ -86,6 +100,7 @@ public class DBManager {
             int year = cursor.getInt(cursor.getColumnIndex("year"));
             list.add(year);
         }
+        cursor.close();
         return list;
     }
     /**
@@ -94,12 +109,18 @@ public class DBManager {
     public static float getEngelCoefficient(){
         String sql = "select * from foodcostsumview";
         Cursor cursor = db.rawQuery(sql, null);
-        cursor.moveToNext();
-        float foodcost = cursor.getFloat(cursor.getColumnIndex("foodcost"));
+        float foodcost = 0.0f;
+        if (cursor.moveToFirst()) {
+            foodcost = cursor.getFloat(cursor.getColumnIndex("foodcost"));
+            cursor.close();
+        }
         sql = "select sum(money) as sum from accounttb where kind = 0";
         cursor = db.rawQuery(sql, null);
-        cursor.moveToNext();
-        float sum = cursor.getFloat(cursor.getColumnIndex("sum"));
+        float sum = 0.0f;
+        if (cursor.moveToFirst()) {
+            sum = cursor.getFloat(cursor.getColumnIndex("sum"));
+            cursor.close();
+        }
         return foodcost/sum;
     }
     /*
@@ -122,6 +143,7 @@ public class DBManager {
             AccountBean accountBean = new AccountBean(id, typename, ImageId, beizhu, money, time, year, month, day, kind);
             list.add(accountBean);
         }
+        cursor.close();
         return list;
     }
     /**
@@ -145,6 +167,7 @@ public class DBManager {
             AccountBean accountBean = new AccountBean(id, typename, ImageId, bz, money, time, year, month, day, kind);
             list.add(accountBean);
         }
+        cursor.close();
         return list;
     }
     /** 根据指定月份每一日收入或者支出的总钱数的集合*/
@@ -158,6 +181,7 @@ public class DBManager {
             BarChartItemBean itemBean = new BarChartItemBean(year, month, day, smoney);
             list.add(itemBean);
         }
+        cursor.close();
         return list;
     }
     /**
@@ -170,6 +194,7 @@ public class DBManager {
             float money = cursor.getFloat(cursor.getColumnIndex("sum(money)"));
             return money;
         }
+        cursor.close();
         return 0;
     }
     /**
@@ -179,11 +204,11 @@ public class DBManager {
         float total = 0.0f;
         String sql = "select sum(money) from accounttb where year=? and month=? and kind=?";
         Cursor cursor = db.rawQuery(sql, new String[]{year + "", month + "", kind + ""});
-        // 遍历
         if (cursor.moveToFirst()) {
             float money = cursor.getFloat(cursor.getColumnIndex("sum(money)"));
             total = money;
         }
+        cursor.close();
         return total;
     }
     /** 统计某月份支出或者收入情况有多少条  收入-1   支出-0*/
@@ -194,6 +219,7 @@ public class DBManager {
         if (cursor.moveToFirst()) {
             int count = cursor.getInt(cursor.getColumnIndex("count(money)"));
             total = count;
+            cursor.close();
         }
         return total;
     }
@@ -222,6 +248,7 @@ public class DBManager {
             ChartItemBean bean = new ChartItemBean(ImageId, typename, ratio, total);
             list.add(bean);
         }
+        cursor.close();
         return list;
     }
 

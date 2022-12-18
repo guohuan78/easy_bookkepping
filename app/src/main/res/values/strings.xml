@@ -1,13 +1,7 @@
 <resources>
     <string name="app_name">简单记账</string>
-    <string name="editone">记一笔...</string>
-    <string name="month_out">本月支出</string>
     <string name="out">支出</string>
-    <string name="month_in">本月收入</string>
     <string name="in">收入</string>
-    <string name="budget">预算剩余</string>
-    <string name="set_budget">设置预算</string>
-    <string name="see_excel">查看图表分析</string>
     <string name="add_remark">添加备注</string>
     <string name="remark">备注</string>
     <string name="ensure">确定</string>
@@ -22,18 +16,18 @@
     <string name="date_empty">数据为空，无此类记录~~</string>
     <string name="chart_info">账单详情</string>
 
-    <string name="about_appinfo">应用信息</string>
+    <string name="about_app_info">应用信息</string>
     <string name="about_version">版本</string>
     <string name="about_1">1.0</string>
     <string name="about_app">关于应用</string>
-    <string name="about_balabala">简单记账，记账从未如此简单！</string>
+    <string name="about_slogan">简单记账，记账从未如此简单！</string>
     <string name="about_developer">开发者</string>
     <string name="about_me">关于我</string>
     <string name="about_loc">郭睆（huàn）</string>
     <string name="about_email">联系邮箱</string>
     <string name="about_email2">781213930@qq.com</string>
     <string name="about_code">开源代码</string>
-    <string name="about_codeinfo">https://github.com/guohuan78/easy_bookkepping</string>
+    <string name="about_code_info">https://github.com/guohuan78/easy_bookkepping</string>
     <string name="about_B">B站地址</string>
     <string name="about_B2">https://space.bilibili.com/518491096</string>
 
@@ -45,6 +39,12 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="not_data">暂无数据</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="back">返回</string>
+    <string name="calendar">日历</string>
+    <string name="search">搜索</string>
+    <string name="close">关闭</string>
+    <string name="other">其他</string>
+    <string name="comment">备注</string>
+
+    <string name="colon">:</string>
 </resources>

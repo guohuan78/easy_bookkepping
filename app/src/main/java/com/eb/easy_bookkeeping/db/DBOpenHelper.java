@@ -49,6 +49,7 @@ public class DBOpenHelper extends SQLiteOpenHelper {
         db.execSQL(sql,new Object[]{"通讯", R.mipmap.ic_comm,0});
         db.execSQL(sql,new Object[]{"交通", R.mipmap.ic_traffic,0});
         db.execSQL(sql,new Object[]{"服饰", R.mipmap.ic_clothes,0});
+        db.execSQL(sql,new Object[]{"理发", R.mipmap.ic_haircut,0});
         db.execSQL(sql,new Object[]{"学习", R.mipmap.ic_study,0});
         db.execSQL(sql,new Object[]{"娱乐", R.mipmap.ic_game,0});
         db.execSQL(sql,new Object[]{"数码", R.mipmap.ic_digital,0});

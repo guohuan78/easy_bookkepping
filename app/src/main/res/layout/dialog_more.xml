@@ -36,13 +36,13 @@
             android:id="@+id/dialog_more_btn_setting"
             style="@style/dialogmoreStyle"
             android:drawableTop="@mipmap/it_settings"
-            android:layout_marginRight="15dp"
+            android:layout_marginEnd="15dp"
             android:text="@string/setting"/>
         <Button
             android:id="@+id/dialog_more_btn_about"
             style="@style/dialogmoreStyle"
             android:drawableTop="@mipmap/it_about"
-            android:layout_marginRight="15dp"
+            android:layout_marginEnd="15dp"
             android:text="@string/about"/>
 
     </LinearLayout>
@@ -52,5 +52,6 @@
         android:layout_height="wrap_content"
         android:src="@mipmap/it_close"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="10dp"/>
+        android:layout_marginTop="10dp"
+        android:contentDescription="@string/close" />
 </LinearLayout>
