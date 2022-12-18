@@ -25,7 +25,7 @@ import java.util.List;
  * A simple {@link Fragment} subclass.
  */
 public class OutcomChartFragment extends BaseChartFragment {
-    int kind = 0;
+    private final int kind = 0;
     @Override
     public void onResume() {
         super.onResume();

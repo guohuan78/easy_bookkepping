@@ -18,9 +18,9 @@ import java.util.List;
 * 账单详情页面，listview的适配器
 * */
 public class ChartItemAdapter extends BaseAdapter {
-    Context context;
-    List<ChartItemBean> mDatas;
-    LayoutInflater inflater;
+    private final Context context;
+    private final List<ChartItemBean> mDatas;
+    private final LayoutInflater inflater;
     public ChartItemAdapter(Context context, List<ChartItemBean> mDatas) {
         this.context = context;
         this.mDatas = mDatas;
@@ -44,7 +44,7 @@ public class ChartItemAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        ViewHolder holder = null;
+        ViewHolder holder;
         if (convertView == null) {
             convertView = inflater.inflate(R.layout.item_chartfrag_lv,parent,false);
             holder = new ViewHolder(convertView);
@@ -65,9 +65,11 @@ public class ChartItemAdapter extends BaseAdapter {
     }
 
     class ViewHolder{
-        TextView typeTv,ratioTv,totalTv;
-        ImageView iv;
-        public ViewHolder(View view){
+        final TextView typeTv;
+        final TextView ratioTv;
+        final TextView totalTv;
+        final ImageView iv;
+        ViewHolder(View view){
             typeTv = view.findViewById(R.id.item_chartfrag_tv_type);
             ratioTv = view.findViewById(R.id.item_chartfrag_tv_pert);
             totalTv = view.findViewById(R.id.item_chartfrag_tv_sum);

@@ -18,8 +18,8 @@ import com.eb.easy_bookkeeping.adapter.RecordPagerAdapter;
 import com.eb.easy_bookkeeping.utils.MoreDialog;
 
 public class MainActivity extends AppCompatActivity {
-    TabLayout tabLayout;
-    ViewPager viewPager;
+    private TabLayout tabLayout;
+    private ViewPager viewPager;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

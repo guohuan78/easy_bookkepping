@@ -21,16 +21,19 @@ import java.util.Calendar;
 import java.util.List;
 
 public class MonthChartActivity extends AppCompatActivity {
-    Button inBtn,outBtn;
-    TextView dateTv,inTv,outTv;
-    ViewPager chartVp;
-     int year;
-     int month;
-    int selectPos = -1,selectMonth =-1;
-    List<Fragment>chartFragList;
+    private Button inBtn;
+    private Button outBtn;
+    private TextView dateTv;
+    private TextView inTv;
+    private TextView outTv;
+    private ViewPager chartVp;
+     private int year;
+     private int month;
+    private int selectPos = -1;
+    private int selectMonth =-1;
+    private List<Fragment>chartFragList;
     private IncomChartFragment incomChartFragment;
     private OutcomChartFragment outcomChartFragment;
-    private ChartVPAdapter chartVPAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,7 +70,7 @@ public class MonthChartActivity extends AppCompatActivity {
         chartFragList.add(outcomChartFragment);
         chartFragList.add(incomChartFragment);
 //        使用适配器
-        chartVPAdapter = new ChartVPAdapter(getSupportFragmentManager(), chartFragList);
+        ChartVPAdapter chartVPAdapter = new ChartVPAdapter(getSupportFragmentManager(), chartFragList);
         chartVp.setAdapter(chartVPAdapter);
 //        将Fragment加载到Acitivy当中
     }

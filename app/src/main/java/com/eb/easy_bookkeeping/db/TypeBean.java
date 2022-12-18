@@ -1,10 +1,10 @@
 package com.eb.easy_bookkeeping.db;
 //表示收入或支出具体类型的类
 public class TypeBean {
-    int id;
-    String typename;   //类型名称
-    int ImageId;    //图片id
-    int kind;     //收入-1  支出-0
+    private int id;
+    private String typename;   //类型名称
+    private int ImageId;    //图片id
+    private int kind;     //收入-1  支出-0
 
     public int getId() {
         return id;

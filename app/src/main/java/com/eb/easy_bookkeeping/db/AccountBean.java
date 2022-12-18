@@ -1,16 +1,16 @@
 package com.eb.easy_bookkeeping.db;
 /** 描述记录一条数据的相关内容类*/
 public class AccountBean {
-    int id;
-    String typename;   //类型
-    int ImageId;   //类型图片
-    String beizhu;   //备注
-    float money;  //价格
-    String time ;  //保存时间字符串
-    int year;
-    int month;
-    int day;
-    int kind;   //类型  收入---1   支出---0
+    private int id;
+    private String typename;   //类型
+    private int ImageId;   //类型图片
+    private String beizhu;   //备注
+    private float money;  //价格
+    private String time ;  //保存时间字符串
+    private int year;
+    private int month;
+    private int day;
+    private int kind;   //类型  收入---1   支出---0
 
     public int getId() {
         return id;

@@ -1,10 +1,10 @@
 package com.eb.easy_bookkeeping.db;
 /* 用于描述绘制柱状图时，每一个柱子表示的对象*/
 public class BarChartItemBean {
-    int year;
-    int month;
-    int day;
-    float summoney;
+    private int year;
+    private int month;
+    private int day;
+    private float summoney;
 
     public BarChartItemBean() {
     }

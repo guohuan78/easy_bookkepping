@@ -8,7 +8,7 @@ import androidx.annotation.Nullable;
 
 import com.eb.easy_bookkeeping.R;
 
-public class DBOpenHelper extends SQLiteOpenHelper {
+class DBOpenHelper extends SQLiteOpenHelper {
     public DBOpenHelper(@Nullable Context context) {
         super(context,"eb.db" , null, 1);
     }

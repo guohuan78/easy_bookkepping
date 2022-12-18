@@ -24,23 +24,24 @@ import com.eb.easy_bookkeeping.db.DBManager;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
+import java.util.Objects;
 
 public class CalendarDialog extends Dialog implements View.OnClickListener {
-    ImageView errorIv;
-    GridView gv;
-    LinearLayout hsvLayout;
+    private ImageView errorIv;
+    private GridView gv;
+    private LinearLayout hsvLayout;
 
-    List<TextView>hsvViewList;
-    List<Integer>yearList;
+    private List<TextView>hsvViewList;
+    private List<Integer>yearList;
 
-    int selectPos = -1;   //表示正在被点击的年份的位置
+    private int selectPos;   //表示正在被点击的年份的位置
     private CalendarAdapter adapter;
-    int selectMonth = -1;
+    private int selectMonth;
 
     public interface OnRefreshListener{
-        public void onRefresh(int selPos, int year, int month);
+        void onRefresh(int selPos, int year, int month);
     }
-    OnRefreshListener onRefreshListener;
+    private OnRefreshListener onRefreshListener;
 
     public void setOnRefreshListener(OnRefreshListener onRefreshListener) {
         this.onRefreshListener = onRefreshListener;
@@ -86,8 +87,7 @@ public class CalendarDialog extends Dialog implements View.OnClickListener {
         int selYear = yearList.get(selectPos);
         adapter = new CalendarAdapter(getContext(), selYear);
         if (selectMonth == -1) {
-            int month = Calendar.getInstance().get(Calendar.MONTH);
-            adapter.selPos = month;
+            adapter.selPos = Calendar.getInstance().get(Calendar.MONTH);
         }else {
             adapter.selPos = selectMonth-1;
         }
@@ -163,10 +163,10 @@ public class CalendarDialog extends Dialog implements View.OnClickListener {
 //        获取当前窗口对象
         Window window = getWindow();
 //        获取窗口对象的参数
-        WindowManager.LayoutParams wlp = window.getAttributes();
+        WindowManager.LayoutParams wlp = Objects.requireNonNull(window).getAttributes();
 //        获取屏幕宽度
         Display d = window.getWindowManager().getDefaultDisplay();
-        wlp.width = (int)(d.getWidth());  //对话框窗口为屏幕窗口
+        wlp.width = d.getWidth();  //对话框窗口为屏幕窗口
         wlp.gravity = Gravity.TOP;
         window.setBackgroundDrawableResource(android.R.color.transparent);
         window.setAttributes(wlp);

@@ -18,10 +18,13 @@ import androidx.annotation.NonNull;
 
 import com.eb.easy_bookkeeping.R;
 
+import java.util.Objects;
+
 public class BeiZhuDialog extends Dialog implements View.OnClickListener {
-    EditText et;
-    Button cancelBtn,ensureBtn;
-    OnEnsureListener onEnsureListener;
+    private EditText et;
+    private Button cancelBtn;
+    private Button ensureBtn;
+    private OnEnsureListener onEnsureListener;
     // 设定回调接口的方法
     public void setOnEnsureListener(OnEnsureListener onEnsureListener) {
         this.onEnsureListener = onEnsureListener;
@@ -42,7 +45,7 @@ public class BeiZhuDialog extends Dialog implements View.OnClickListener {
         ensureBtn.setOnClickListener(this);
     }
     public interface OnEnsureListener{
-        public void onEnsure();
+        void onEnsure();
     }
 
     @Override
@@ -68,17 +71,17 @@ public class BeiZhuDialog extends Dialog implements View.OnClickListener {
 //        获取当前窗口对象
         Window window = getWindow();
 //        获取窗口对象的参数
-        WindowManager.LayoutParams wlp = window.getAttributes();
+        WindowManager.LayoutParams wlp = Objects.requireNonNull(window).getAttributes();
 //        获取屏幕宽度
         Display d = window.getWindowManager().getDefaultDisplay();
-        wlp.width = (int)(d.getWidth());  //对话框窗口为屏幕窗口
+        wlp.width = d.getWidth();  //对话框窗口为屏幕窗口
         wlp.gravity = Gravity.BOTTOM;
         window.setBackgroundDrawableResource(android.R.color.transparent);
         window.setAttributes(wlp);
         handler.sendEmptyMessageDelayed(1,100);
     }
 
-    Handler handler = new Handler(){
+    private final Handler handler = new Handler(){
         @Override
         public void handleMessage(@NonNull Message msg) {
             //自动弹出软键盘的方法

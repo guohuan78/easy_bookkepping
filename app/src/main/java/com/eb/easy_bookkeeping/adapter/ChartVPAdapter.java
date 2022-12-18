@@ -8,7 +8,7 @@ import androidx.fragment.app.FragmentPagerAdapter;
 import java.util.List;
 
 public class ChartVPAdapter extends FragmentPagerAdapter {
-    List<Fragment>fragmentList;
+    private final List<Fragment>fragmentList;
     public ChartVPAdapter(@NonNull FragmentManager fm, List<Fragment>fragmentList) {
         super(fm);
         this.fragmentList = fragmentList;

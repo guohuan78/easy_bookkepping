@@ -15,10 +15,12 @@ import java.util.Calendar;
 import java.util.List;
 
 public class AccountAdapter extends BaseAdapter {
-    Context context;
-    List<AccountBean>mDatas;
-    LayoutInflater inflater;
-    int year,month,day;
+    private final Context context;
+    private final List<AccountBean>mDatas;
+    private final LayoutInflater inflater;
+    private final int year;
+    private final int month;
+    private final int day;
     public AccountAdapter(Context context, List<AccountBean> mDatas) {
         this.context = context;
         this.mDatas = mDatas;
@@ -46,7 +48,7 @@ public class AccountAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        ViewHolder holder = null;
+        ViewHolder holder;
         if (convertView == null) {
             convertView = inflater.inflate(R.layout.item_mainlv,parent,false);
             holder = new ViewHolder(convertView);
@@ -69,9 +71,12 @@ public class AccountAdapter extends BaseAdapter {
     }
 
     class ViewHolder{
-        ImageView typeIv;
-        TextView typeTv,beizhuTv,timeTv,moneyTv;
-        public ViewHolder(View view){
+        final ImageView typeIv;
+        final TextView typeTv;
+        final TextView beizhuTv;
+        final TextView timeTv;
+        final TextView moneyTv;
+        ViewHolder(View view){
             typeIv = view.findViewById(R.id.item_mainlv_iv);
             typeTv = view.findViewById(R.id.item_mainlv_tv_title);
             timeTv = view.findViewById(R.id.item_mainlv_tv_time);

@@ -1,10 +1,10 @@
 package com.eb.easy_bookkeeping.db;
 
 public class ChartItemBean {
-    int ImageId;
-    String type;
-    float ratio;   //所占比例
-    float totalMoney;  //此项的总钱数
+    private int ImageId;
+    private String type;
+    private float ratio;   //所占比例
+    private float totalMoney;  //此项的总钱数
 
     public ChartItemBean() {
     }

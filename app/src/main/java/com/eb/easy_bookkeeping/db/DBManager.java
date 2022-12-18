@@ -58,9 +58,8 @@ public class DBManager {
     /*
      * 根据传入的id，删除accounttb表当中的一条数据
      * */
-    public static int deleteItemFromAccounttbById(int id){
-        int i = db.delete("accounttb", "id=?", new String[]{id + ""});
-        return i;
+    public static void deleteItemFromAccounttbById(int id){
+        db.delete("accounttb", "id=?", new String[]{id + ""});
     }
     /*
      * 根据传入的id，删除accounttb表当中的一条数据
@@ -191,8 +190,7 @@ public class DBManager {
         String sql = "select sum(money) from accounttb where year=? and month=? and kind=? group by day order by sum(money) desc";
         Cursor cursor = db.rawQuery(sql, new String[]{year + "", month + "", kind + ""});
         if (cursor.moveToFirst()) {
-            float money = cursor.getFloat(cursor.getColumnIndex("sum(money)"));
-            return money;
+            return cursor.getFloat(cursor.getColumnIndex("sum(money)"));
         }
         cursor.close();
         return 0;
@@ -205,8 +203,7 @@ public class DBManager {
         String sql = "select sum(money) from accounttb where year=? and month=? and kind=?";
         Cursor cursor = db.rawQuery(sql, new String[]{year + "", month + "", kind + ""});
         if (cursor.moveToFirst()) {
-            float money = cursor.getFloat(cursor.getColumnIndex("sum(money)"));
-            total = money;
+            total = cursor.getFloat(cursor.getColumnIndex("sum(money)"));
         }
         cursor.close();
         return total;
@@ -217,8 +214,7 @@ public class DBManager {
         String sql = "select count(money) from accounttb where year=? and month=? and kind=?";
         Cursor cursor = db.rawQuery(sql, new String[]{year + "", month + "", kind + ""});
         if (cursor.moveToFirst()) {
-            int count = cursor.getInt(cursor.getColumnIndex("count(money)"));
-            total = count;
+            total = cursor.getInt(cursor.getColumnIndex("count(money)"));
             cursor.close();
         }
         return total;

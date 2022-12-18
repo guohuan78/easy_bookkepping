@@ -18,13 +18,15 @@ import com.eb.easy_bookkeeping.R;
 * 在记录页面弹出时间对话框
 * */
 public class SelectTimeDialog extends Dialog implements View.OnClickListener {
-    EditText hourEt,minuteEt;
-    DatePicker datePicker;
-    Button ensureBtn,cancelBtn;
+    private EditText hourEt;
+    private EditText minuteEt;
+    private DatePicker datePicker;
+    private Button ensureBtn;
+    private Button cancelBtn;
     public interface OnEnsureListener{
-        public void onEnsure(String time, int year, int month, int day);
+        void onEnsure(String time, int year, int month, int day);
     }
-    OnEnsureListener onEnsureListener;
+    private OnEnsureListener onEnsureListener;
 
     public void setOnEnsureListener(OnEnsureListener onEnsureListener) {
         this.onEnsureListener = onEnsureListener;

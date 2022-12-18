@@ -10,14 +10,13 @@ import android.widget.EditText;
 import com.eb.easy_bookkeeping.R;
 
 public class KeyBoardUtils {
-    private final Keyboard k1;    //自定义键盘
-    private KeyboardView keyboardView;
-    private EditText editText;
+    private final KeyboardView keyboardView;
+    private final EditText editText;
 
     public interface OnEnsureListener{
-        public void onEnsure();
+        void onEnsure();
     }
-    OnEnsureListener onEnsureListener;
+    private OnEnsureListener onEnsureListener;
 
     public void setOnEnsureListener(OnEnsureListener onEnsureListener) {
         this.onEnsureListener = onEnsureListener;
@@ -27,7 +26,8 @@ public class KeyBoardUtils {
         this.keyboardView = keyboardView;
         this.editText = editText;
         this.editText.setInputType(InputType.TYPE_NULL);  //取消弹出系统键盘
-        k1 = new Keyboard(this.editText.getContext(), R.xml.key);
+        //自定义键盘
+        Keyboard k1 = new Keyboard(this.editText.getContext(), R.xml.key);
 
         this.keyboardView.setKeyboard(k1);  //设置要显示键盘的样式
         this.keyboardView.setEnabled(true);
@@ -35,7 +35,7 @@ public class KeyBoardUtils {
         this.keyboardView.setOnKeyboardActionListener(listener);  //设置键盘按钮被点击了的监听
     }
 
-    KeyboardView.OnKeyboardActionListener listener = new KeyboardView.OnKeyboardActionListener() {
+    private final KeyboardView.OnKeyboardActionListener listener = new KeyboardView.OnKeyboardActionListener() {
         @Override
         public void onPress(int primaryCode) {
         }

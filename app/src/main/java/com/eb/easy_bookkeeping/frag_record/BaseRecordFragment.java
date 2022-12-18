@@ -27,17 +27,20 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * 记录页面当中的支出模块
  */
-public abstract class BaseRecordFragment extends Fragment implements View.OnClickListener {
+abstract class BaseRecordFragment extends Fragment implements View.OnClickListener {
 
-    KeyboardView keyboardView;
-    EditText moneyEt;
+    private KeyboardView keyboardView;
+    private EditText moneyEt;
     ImageView typeIv;
-    TextView typeTv,beizhuTv,timeTv;
-    GridView typeGv;
+    TextView typeTv;
+    TextView beizhuTv;
+    private TextView timeTv;
+    private GridView typeGv;
     List<TypeBean>typeList;
     TypeBaseAdapter adapter;
     AccountBean accountBean;   //将需要插入到记账本当中的数据保存成对象的形式
@@ -69,7 +72,7 @@ public abstract class BaseRecordFragment extends Fragment implements View.OnClic
     }
 
     /* 获取当前时间，显示在timeTv上*/
-    public void setInitTime() {
+    void setInitTime() {
         Date date = new Date();
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy年MM月dd日 HH:mm");
         String time = sdf.format(date);
@@ -86,7 +89,7 @@ public abstract class BaseRecordFragment extends Fragment implements View.OnClic
     }
 
     /* 设置GridView每一项的点击事件*/
-    public void setGVListener() {
+    void setGVListener() {
         typeGv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -106,13 +109,13 @@ public abstract class BaseRecordFragment extends Fragment implements View.OnClic
     }
 
     /* 给GridView填出数据的方法*/
-    public void loadDataToGV() {
+    void loadDataToGV() {
         typeList = new ArrayList<>();
         adapter = new TypeBaseAdapter(getContext(), typeList);
         typeGv.setAdapter(adapter);
     }
 
-    public void initView(View view) {
+    void initView(View view) {
         keyboardView = view.findViewById(R.id.frag_record_keyboard);
         moneyEt = view.findViewById(R.id.frag_record_et_money);
         typeIv = view.findViewById(R.id.frag_record_iv);
@@ -132,7 +135,7 @@ public abstract class BaseRecordFragment extends Fragment implements View.OnClic
                 //获取输入钱数
                 String moneyStr = moneyEt.getText().toString();
                 if (TextUtils.isEmpty(moneyStr)||moneyStr.equals("0")) {
-                    getActivity().finish();
+                    Objects.requireNonNull(getActivity()).finish();
                     return;
                 }
                 float money = Float.parseFloat(moneyStr);
@@ -140,12 +143,12 @@ public abstract class BaseRecordFragment extends Fragment implements View.OnClic
                 //获取记录的信息，保存在数据库当中
                 saveAccountToDB();
                 // 返回上一级页面
-                getActivity().finish();
+                Objects.requireNonNull(getActivity()).finish();
             }
         });
     }
     /* 让子类一定要重写这个方法*/
-    public abstract void saveAccountToDB();
+    protected abstract void saveAccountToDB();
 
     @Override
     public void onClick(View v) {
@@ -160,7 +163,7 @@ public abstract class BaseRecordFragment extends Fragment implements View.OnClic
     }
      //弹出显示时间的对话框
     private void showTimeDialog() {
-        SelectTimeDialog dialog = new SelectTimeDialog(getContext());
+        SelectTimeDialog dialog = new SelectTimeDialog(Objects.requireNonNull(getContext()));
         dialog.show();
         //设定确定按钮被点击了的监听器
         dialog.setOnEnsureListener(new SelectTimeDialog.OnEnsureListener() {
@@ -176,8 +179,8 @@ public abstract class BaseRecordFragment extends Fragment implements View.OnClic
     }
 
     /* 弹出备注对话框*/
-    public  void showBZDialog(){
-        final BeiZhuDialog dialog = new BeiZhuDialog(getContext());
+    private void showBZDialog(){
+        final BeiZhuDialog dialog = new BeiZhuDialog(Objects.requireNonNull(getContext()));
         dialog.show();
         dialog.setDialogSize();
         dialog.setOnEnsureListener(new BeiZhuDialog.OnEnsureListener() {

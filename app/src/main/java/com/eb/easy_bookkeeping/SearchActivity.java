@@ -18,11 +18,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SearchActivity extends AppCompatActivity {
-    ListView searchLv;
-    EditText searchEt;
-    TextView emptyTv;
-    List<AccountBean>mDatas;   //数据源
-    AccountAdapter adapter;    //适配器对象
+    private ListView searchLv;
+    private EditText searchEt;
+    private TextView emptyTv;
+    private List<AccountBean>mDatas;   //数据源
+    private AccountAdapter adapter;    //适配器对象
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

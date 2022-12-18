@@ -21,9 +21,15 @@ import com.eb.easy_bookkeeping.R;
 import com.eb.easy_bookkeeping.SearchActivity;
 import com.eb.easy_bookkeeping.SettingActivity;
 
+import java.util.Objects;
+
 public class MoreDialog extends Dialog implements View.OnClickListener {
-    Button aboutBtn,settingBtn,historyBtn,infoBtn,searchBtn;
-    ImageView errorIv;
+    private Button aboutBtn;
+    private Button settingBtn;
+    private Button historyBtn;
+    private Button infoBtn;
+    private Button searchBtn;
+    private ImageView errorIv;
     public MoreDialog(@NonNull Context context) {
         super(context);
     }
@@ -81,10 +87,10 @@ public class MoreDialog extends Dialog implements View.OnClickListener {
 //        获取当前窗口对象
         Window window = getWindow();
 //        获取窗口对象的参数
-        WindowManager.LayoutParams wlp = window.getAttributes();
+        WindowManager.LayoutParams wlp = Objects.requireNonNull(window).getAttributes();
 //        获取屏幕宽度
         Display d = window.getWindowManager().getDefaultDisplay();
-        wlp.width = (int)(d.getWidth());  //对话框窗口为屏幕窗口
+        wlp.width = d.getWidth();  //对话框窗口为屏幕窗口
         wlp.gravity = Gravity.BOTTOM;
         window.setBackgroundDrawableResource(android.R.color.transparent);
         window.setAttributes(wlp);

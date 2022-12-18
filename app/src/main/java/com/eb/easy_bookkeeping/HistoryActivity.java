@@ -21,14 +21,15 @@ import java.util.Calendar;
 import java.util.List;
 
 public class HistoryActivity extends AppCompatActivity {
-    ListView historyLv;
-    TextView timeTv;
+    private ListView historyLv;
+    private TextView timeTv;
 
-    List<AccountBean>mDatas;
-    AccountAdapter adapter;
-    int year,month;
-    int dialogSelPos = -1;
-    int dialogSelMonth = -1;
+    private List<AccountBean>mDatas;
+    private AccountAdapter adapter;
+    private int year;
+    private int month;
+    private int dialogSelPos = -1;
+    private int dialogSelMonth = -1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

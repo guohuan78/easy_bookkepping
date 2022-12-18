@@ -21,15 +21,16 @@ import com.eb.easy_bookkeeping.db.DBManager;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * A simple {@link Fragment} subclass.
  */
-abstract public class BaseChartFragment extends Fragment {
-    ListView chartLv;
+abstract class BaseChartFragment extends Fragment {
+    private ListView chartLv;
      int year;
      int month;
-    List<ChartItemBean>mDatas;   //数据源
+    private List<ChartItemBean>mDatas;   //数据源
     private ChartItemAdapter itemAdapter;
     BarChart barChart;     //代表柱状图的控件
     TextView chartTv;     //如果没有收支情况，显示的TextView
@@ -41,7 +42,7 @@ abstract public class BaseChartFragment extends Fragment {
         chartLv = view.findViewById(R.id.frag_chart_lv);
         //获取Activity传递的数据
         Bundle bundle = getArguments();
-        year = bundle.getInt("year");
+        year = Objects.requireNonNull(bundle).getInt("year");
         month = bundle.getInt("month");
         //设置数据源
         mDatas = new ArrayList<>();
@@ -53,7 +54,7 @@ abstract public class BaseChartFragment extends Fragment {
         return view;
     }
 
-    protected  void addLVHeaderView(){
+    private void addLVHeaderView(){
 //        将布局转换成View对象
         View headerView = getLayoutInflater().inflate(R.layout.item_chartfrag_top,null);
 //        将View添加到ListView的头布局上
@@ -73,7 +74,7 @@ abstract public class BaseChartFragment extends Fragment {
     protected abstract void setAxisData(int year, int month);
 
     /** 设置柱状图坐标轴的显示  方法必须重新*/
-    protected  void setAxis(int year, final int month){
+    private void setAxis(int year, final int month){
 //        设置X轴
         XAxis xAxis = barChart.getXAxis();
         xAxis.setPosition(XAxis.XAxisPosition.BOTTOM); //设置x轴显示在下方
@@ -118,7 +119,7 @@ abstract public class BaseChartFragment extends Fragment {
     /* 设置y轴，因为最高的坐标不确定，所以在子类当中设置*/
     protected abstract void setYAxis(int year,int month);
 
-    public void setDate(int year,int month){
+    void setDate(int year, int month){
         this.year = year;
         this.month = month;
         // 清空柱状图当中的数据
@@ -129,7 +130,7 @@ abstract public class BaseChartFragment extends Fragment {
     }
 
 
-    public void loadData(int year,int month,int kind) {
+    void loadData(int year, int month, int kind) {
         List<ChartItemBean> list = DBManager.getChartListFromAccounttb(year, month, kind);
         mDatas.clear();
         mDatas.addAll(list);

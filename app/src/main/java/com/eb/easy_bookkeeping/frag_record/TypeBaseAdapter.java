@@ -10,9 +10,9 @@ import com.eb.easy_bookkeeping.R;
 import com.eb.easy_bookkeeping.db.TypeBean;
 import java.util.List;
 
-public class TypeBaseAdapter extends BaseAdapter {
-    Context context;
-    List<TypeBean>mDatas;
+class TypeBaseAdapter extends BaseAdapter {
+    private final Context context;
+    private final List<TypeBean>mDatas;
     int selectPos = 0;  //选中位置
     public TypeBaseAdapter(Context context, List<TypeBean> mDatas) {
         this.context = context;
