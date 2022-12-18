@@ -15,14 +15,12 @@ import com.eb.easy_bookkeeping.utils.FloatUtils;
 import java.util.List;
 
 /*
-* 账单详情页面，listview的适配器
+* 账单详情页面，list view的适配器
 * */
 public class ChartItemAdapter extends BaseAdapter {
-    private final Context context;
     private final List<ChartItemBean> mDatas;
     private final LayoutInflater inflater;
     public ChartItemAdapter(Context context, List<ChartItemBean> mDatas) {
-        this.context = context;
         this.mDatas = mDatas;
         inflater = LayoutInflater.from(context);
     }
@@ -70,10 +68,10 @@ public class ChartItemAdapter extends BaseAdapter {
         final TextView totalTv;
         final ImageView iv;
         ViewHolder(View view){
-            typeTv = view.findViewById(R.id.item_chartfrag_tv_type);
-            ratioTv = view.findViewById(R.id.item_chartfrag_tv_pert);
-            totalTv = view.findViewById(R.id.item_chartfrag_tv_sum);
-            iv = view.findViewById(R.id.item_chartfrag_iv);
+            typeTv = view.findViewById(R.id.item_chart_frag_tv_type);
+            ratioTv = view.findViewById(R.id.item_chart_frag_tv_pert);
+            totalTv = view.findViewById(R.id.item_chart_frag_tv_sum);
+            iv = view.findViewById(R.id.item_chart_frag_iv);
         }
     }
 }

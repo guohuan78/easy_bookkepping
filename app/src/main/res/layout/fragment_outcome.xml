@@ -33,6 +33,7 @@
             android:layout_centerVertical="true"
             android:inputType="number"
             android:background="@color/white"
+            android:hint="@string/money"
             android:importantForAutofill="no" />
     </RelativeLayout>
     <View
@@ -84,7 +85,7 @@
             android:id="@+id/frag_record_tv_beizhu"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="添加备注"
+            android:text="@string/add_comment"
             android:layout_toStartOf="@id/frag_record_tv_time"
             android:padding="10dp"/>
     </RelativeLayout>

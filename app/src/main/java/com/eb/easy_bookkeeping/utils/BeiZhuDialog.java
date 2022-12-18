@@ -22,8 +22,6 @@ import java.util.Objects;
 
 public class BeiZhuDialog extends Dialog implements View.OnClickListener {
     private EditText et;
-    private Button cancelBtn;
-    private Button ensureBtn;
     private OnEnsureListener onEnsureListener;
     // 设定回调接口的方法
     public void setOnEnsureListener(OnEnsureListener onEnsureListener) {
@@ -39,8 +37,8 @@ public class BeiZhuDialog extends Dialog implements View.OnClickListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.dialog_beizhu);//设置对话框显示布局
         et = findViewById(R.id.dialog_beizhu_et);
-        cancelBtn = findViewById(R.id.dialog_beizhu_btn_cancel);
-        ensureBtn = findViewById(R.id.dialog_beizhu_btn_ensure);
+        Button cancelBtn = findViewById(R.id.dialog_beizhu_btn_cancel);
+        Button ensureBtn = findViewById(R.id.dialog_beizhu_btn_ensure);
         cancelBtn.setOnClickListener(this);
         ensureBtn.setOnClickListener(this);
     }

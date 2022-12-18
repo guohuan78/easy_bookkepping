@@ -4,7 +4,7 @@
     android:layout_height="wrap_content"
     android:padding="5dp">
     <TextView
-        android:id="@+id/item_dialogcal_gv_tv"
+        android:id="@+id/item_dialog_cal_gv_tv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="2020/1"

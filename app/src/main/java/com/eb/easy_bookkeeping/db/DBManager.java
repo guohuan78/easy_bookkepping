@@ -176,8 +176,8 @@ public class DBManager {
         List<BarChartItemBean>list = new ArrayList<>();
         while (cursor.moveToNext()) {
             int day = cursor.getInt(cursor.getColumnIndex("day"));
-            float smoney = cursor.getFloat(cursor.getColumnIndex("sum(money)"));
-            BarChartItemBean itemBean = new BarChartItemBean(year, month, day, smoney);
+            float sumMoney = cursor.getFloat(cursor.getColumnIndex("sum(money)"));
+            BarChartItemBean itemBean = new BarChartItemBean(year, month, day, sumMoney);
             list.add(itemBean);
         }
         cursor.close();

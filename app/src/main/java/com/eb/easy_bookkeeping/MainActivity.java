@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
         RecordPagerAdapter pagerAdapter = new RecordPagerAdapter(getSupportFragmentManager(), fragmentList);
 //        设置适配器
         viewPager.setAdapter(pagerAdapter);
-        //将TabLayout和ViwePager进行关联
+        //将TabLayout和ViewPager进行关联
         tabLayout.setupWithViewPager(viewPager);
     }
 
@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
                 moreDialog.show();
                 moreDialog.setDialogSize();
                 break;
-            case R.id.main_tv_appname:
+            case R.id.main_tv_app_name:
                 break;
         }
     }

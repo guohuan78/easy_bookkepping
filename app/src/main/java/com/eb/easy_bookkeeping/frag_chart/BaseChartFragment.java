@@ -60,8 +60,8 @@ abstract class BaseChartFragment extends Fragment {
 //        将View添加到ListView的头布局上
         chartLv.addHeaderView(headerView);
 //        查找头布局当中包含的控件
-        barChart = headerView.findViewById(R.id.item_chartfrag_chart);
-        chartTv = headerView.findViewById(R.id.item_chartfrag_top_tv);
+        barChart = headerView.findViewById(R.id.item_chart_frag_chart);
+        chartTv = headerView.findViewById(R.id.item_chart_frag_top_tv);
 //        设定柱状图不显示描述
         barChart.getDescription().setEnabled(false);
 //        设置柱状图的内边距

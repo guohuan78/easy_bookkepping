@@ -3,30 +3,30 @@
     android:layout_width="match_parent" android:layout_height="wrap_content"
     android:padding="10dp">
     <ImageView
-        android:id="@+id/item_chartfrag_iv"
+        android:id="@+id/item_chart_frag_iv"
         android:layout_width="35dp"
         android:layout_height="35dp"
         android:src="@mipmap/ic_other"
         android:contentDescription="@string/other" />
     <TextView
-        android:id="@+id/item_chartfrag_tv_type"
+        android:id="@+id/item_chart_frag_tv_type"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/other"
         android:textSize="16sp"
-        android:layout_toEndOf="@id/item_chartfrag_iv"
+        android:layout_toEndOf="@id/item_chart_frag_iv"
         android:layout_centerVertical="true"
         android:layout_marginStart="10dp"
         android:textStyle="bold"/>
     <TextView
-        android:id="@+id/item_chartfrag_tv_pert"
+        android:id="@+id/item_chart_frag_tv_pert"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="22.3%"
         android:textSize="16sp"
         android:layout_centerInParent="true"/>
     <TextView
-        android:id="@+id/item_chartfrag_tv_sum"
+        android:id="@+id/item_chart_frag_tv_sum"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="￥123.3"

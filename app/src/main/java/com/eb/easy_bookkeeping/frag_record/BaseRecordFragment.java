@@ -34,7 +34,6 @@ import java.util.Objects;
  */
 abstract class BaseRecordFragment extends Fragment implements View.OnClickListener {
 
-    private KeyboardView keyboardView;
     private EditText moneyEt;
     ImageView typeIv;
     TextView typeTv;
@@ -116,7 +115,7 @@ abstract class BaseRecordFragment extends Fragment implements View.OnClickListen
     }
 
     void initView(View view) {
-        keyboardView = view.findViewById(R.id.frag_record_keyboard);
+        KeyboardView keyboardView = view.findViewById(R.id.frag_record_keyboard);
         moneyEt = view.findViewById(R.id.frag_record_et_money);
         typeIv = view.findViewById(R.id.frag_record_iv);
         typeGv = view.findViewById(R.id.frag_record_gv);

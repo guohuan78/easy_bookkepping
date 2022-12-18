@@ -4,13 +4,13 @@
     android:layout_height="wrap_content"
     android:padding="5dp">
     <ImageView
-        android:id="@+id/item_recordfrag_iv"
+        android:id="@+id/item_record_frag_iv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:src="@mipmap/ic_other"
         android:contentDescription="@string/other" />
     <TextView
-        android:id="@+id/item_recordfrag_tv"
+        android:id="@+id/item_record_frag_tv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/other"

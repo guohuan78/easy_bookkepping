@@ -38,8 +38,8 @@ class TypeBaseAdapter extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
         convertView = LayoutInflater.from(context).inflate(R.layout.item_recordfrag_gv,parent,false);
         //查找布局当中的控件
-        ImageView iv = convertView.findViewById(R.id.item_recordfrag_iv);
-        TextView tv = convertView.findViewById(R.id.item_recordfrag_tv);
+        ImageView iv = convertView.findViewById(R.id.item_record_frag_iv);
+        TextView tv = convertView.findViewById(R.id.item_record_frag_tv);
         //获取指定位置的数据源
         TypeBean typeBean = mDatas.get(position);
         tv.setText(typeBean.getTypename());

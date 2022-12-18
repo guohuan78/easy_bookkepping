@@ -61,7 +61,7 @@ public class CalendarAdapter extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         convertView = LayoutInflater.from(context).inflate(R.layout.item_dialogcal_gv,parent,false);
-        TextView tv = convertView.findViewById(R.id.item_dialogcal_gv_tv);
+        TextView tv = convertView.findViewById(R.id.item_dialog_cal_gv_tv);
         tv.setText(mDatas.get(position));
         tv.setBackgroundResource(R.color.grey_f3f3f3);
         tv.setTextColor(Color.BLACK);

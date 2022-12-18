@@ -45,6 +45,12 @@
     <string name="close">关闭</string>
     <string name="other">其他</string>
     <string name="comment">备注</string>
+    <string name="more">更多</string>
+    <string name="hour">小时</string>
+    <string name="minute">分钟</string>
+    <string name="money">金额</string>
 
     <string name="colon">:</string>
+
+    <string name="add_comment">添加备注</string>
 </resources>

@@ -4,7 +4,7 @@
     android:layout_margin="10dp"
     android:padding="10dp">
     <ImageView
-        android:id="@+id/item_mainlv_iv"
+        android:id="@+id/item_main_lv_iv"
         android:layout_width="45dp"
         android:layout_height="45dp"
         android:src="@mipmap/ic_other"
@@ -12,18 +12,18 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toEndOf="@id/item_mainlv_iv"
+        android:layout_toEndOf="@id/item_main_lv_iv"
         android:layout_marginStart="10dp"
         android:orientation="vertical">
         <TextView
-            android:id="@+id/item_mainlv_tv_title"
+            android:id="@+id/item_main_lv_tv_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/other"
             android:textStyle="bold"
             android:textSize="16sp"/>
         <TextView
-            android:id="@+id/item_mainlv_tv_beizhu"
+            android:id="@+id/item_main_lv_tv_beizhu"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/comment"
@@ -37,13 +37,13 @@
         android:gravity="end"
         android:orientation="vertical">
         <TextView
-            android:id="@+id/item_mainlv_tv_money"
+            android:id="@+id/item_main_lv_tv_money"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="￥25.0"
             android:textStyle="bold"/>
         <TextView
-            android:id="@+id/item_mainlv_tv_time"
+            android:id="@+id/item_main_lv_tv_time"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="今天 18:10"

@@ -121,7 +121,7 @@ public class HistoryActivity extends AppCompatActivity {
             case R.id.history_iv_back:
                 finish();
                 break;
-            case R.id.history_iv_rili:
+            case R.id.history_iv_calendar:
                 CalendarDialog dialog = new CalendarDialog(this,dialogSelPos,dialogSelMonth);
                 dialog.show();
                 dialog.setDialogSize();

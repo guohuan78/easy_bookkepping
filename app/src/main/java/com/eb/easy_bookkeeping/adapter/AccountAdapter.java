@@ -15,14 +15,12 @@ import java.util.Calendar;
 import java.util.List;
 
 public class AccountAdapter extends BaseAdapter {
-    private final Context context;
     private final List<AccountBean>mDatas;
     private final LayoutInflater inflater;
     private final int year;
     private final int month;
     private final int day;
     public AccountAdapter(Context context, List<AccountBean> mDatas) {
-        this.context = context;
         this.mDatas = mDatas;
         inflater = LayoutInflater.from(context);
         Calendar calendar = Calendar.getInstance();
@@ -77,11 +75,11 @@ public class AccountAdapter extends BaseAdapter {
         final TextView timeTv;
         final TextView moneyTv;
         ViewHolder(View view){
-            typeIv = view.findViewById(R.id.item_mainlv_iv);
-            typeTv = view.findViewById(R.id.item_mainlv_tv_title);
-            timeTv = view.findViewById(R.id.item_mainlv_tv_time);
-            beizhuTv = view.findViewById(R.id.item_mainlv_tv_beizhu);
-            moneyTv = view.findViewById(R.id.item_mainlv_tv_money);
+            typeIv = view.findViewById(R.id.item_main_lv_iv);
+            typeTv = view.findViewById(R.id.item_main_lv_tv_title);
+            timeTv = view.findViewById(R.id.item_main_lv_tv_time);
+            beizhuTv = view.findViewById(R.id.item_main_lv_tv_beizhu);
+            moneyTv = view.findViewById(R.id.item_main_lv_tv_money);
 
         }
     }

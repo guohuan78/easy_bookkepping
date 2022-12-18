@@ -21,8 +21,7 @@ public class SelectTimeDialog extends Dialog implements View.OnClickListener {
     private EditText hourEt;
     private EditText minuteEt;
     private DatePicker datePicker;
-    private Button ensureBtn;
-    private Button cancelBtn;
+
     public interface OnEnsureListener{
         void onEnsure(String time, int year, int month, int day);
     }
@@ -43,8 +42,8 @@ public class SelectTimeDialog extends Dialog implements View.OnClickListener {
         hourEt = findViewById(R.id.dialog_time_et_hour);
         minuteEt = findViewById(R.id.dialog_time_et_minute);
         datePicker = findViewById(R.id.dialog_time_dp);
-        ensureBtn = findViewById(R.id.dialog_time_btn_ensure);
-        cancelBtn = findViewById(R.id.dialog_time_btn_cancel);
+        Button ensureBtn = findViewById(R.id.dialog_time_btn_ensure);
+        Button cancelBtn = findViewById(R.id.dialog_time_btn_cancel);
         ensureBtn.setOnClickListener(this);  //添加点击监听事件
         cancelBtn.setOnClickListener(this);
         hideDatePickerHeader();

@@ -24,12 +24,6 @@ import com.eb.easy_bookkeeping.SettingActivity;
 import java.util.Objects;
 
 public class MoreDialog extends Dialog implements View.OnClickListener {
-    private Button aboutBtn;
-    private Button settingBtn;
-    private Button historyBtn;
-    private Button infoBtn;
-    private Button searchBtn;
-    private ImageView errorIv;
     public MoreDialog(@NonNull Context context) {
         super(context);
     }
@@ -37,12 +31,12 @@ public class MoreDialog extends Dialog implements View.OnClickListener {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.dialog_more);
-        aboutBtn = findViewById(R.id.dialog_more_btn_about);
-        settingBtn = findViewById(R.id.dialog_more_btn_setting);
-        historyBtn = findViewById(R.id.dialog_more_btn_record);
-        infoBtn = findViewById(R.id.dialog_more_btn_info);
-        searchBtn = findViewById(R.id.dialog_more_btn_search);
-        errorIv = findViewById(R.id.dialog_more_iv);
+        Button aboutBtn = findViewById(R.id.dialog_more_btn_about);
+        Button settingBtn = findViewById(R.id.dialog_more_btn_setting);
+        Button historyBtn = findViewById(R.id.dialog_more_btn_record);
+        Button infoBtn = findViewById(R.id.dialog_more_btn_info);
+        Button searchBtn = findViewById(R.id.dialog_more_btn_search);
+        ImageView errorIv = findViewById(R.id.dialog_more_iv);
 
         aboutBtn.setOnClickListener(this);
         settingBtn.setOnClickListener(this);

@@ -24,13 +24,14 @@ import java.util.List;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class IncomChartFragment extends BaseChartFragment {
-    private final int kind = 1;
+public class OutcomeChartFragment extends BaseChartFragment {
+    private final int kind = 0;
     @Override
     public void onResume() {
         super.onResume();
         loadData(year,month,kind);
     }
+
 
     @Override
     protected void setAxisData(int year, int month) {
@@ -61,7 +62,7 @@ public class IncomChartFragment extends BaseChartFragment {
             BarDataSet barDataSet1 = new BarDataSet(barEntries1, "");
             barDataSet1.setValueTextColor(Color.BLACK); // 值的颜色
             barDataSet1.setValueTextSize(8f); // 值的大小
-            barDataSet1.setColor(Color.parseColor("#006400")); // 柱子的颜色
+            barDataSet1.setColor(Color.RED); // 柱子的颜色
 
             // 设置柱子上数据显示的格式
             barDataSet1.setValueFormatter(new IValueFormatter() {
@@ -102,7 +103,6 @@ public class IncomChartFragment extends BaseChartFragment {
         Legend legend = barChart.getLegend();
         legend.setEnabled(false);
     }
-
 
     @Override
     public void setDate(int year, int month) {

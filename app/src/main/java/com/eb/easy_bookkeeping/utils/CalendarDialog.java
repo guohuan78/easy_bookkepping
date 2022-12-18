@@ -27,7 +27,6 @@ import java.util.List;
 import java.util.Objects;
 
 public class CalendarDialog extends Dialog implements View.OnClickListener {
-    private ImageView errorIv;
     private GridView gv;
     private LinearLayout hsvLayout;
 
@@ -36,7 +35,7 @@ public class CalendarDialog extends Dialog implements View.OnClickListener {
 
     private int selectPos;   //表示正在被点击的年份的位置
     private CalendarAdapter adapter;
-    private int selectMonth;
+    private final int selectMonth;
 
     public interface OnRefreshListener{
         void onRefresh(int selPos, int year, int month);
@@ -58,7 +57,7 @@ public class CalendarDialog extends Dialog implements View.OnClickListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.dialog_calendar);
         gv = findViewById(R.id.dialog_calendar_gv);
-        errorIv = findViewById(R.id.dialog_calendar_iv);
+        ImageView errorIv = findViewById(R.id.dialog_calendar_iv);
         hsvLayout = findViewById(R.id.dialog_calendar_layout);
         errorIv.setOnClickListener(this);
         // 向横向的ScrollView当中添加View的方法
@@ -108,14 +107,14 @@ public class CalendarDialog extends Dialog implements View.OnClickListener {
             int year = yearList.get(i);
             View view = getLayoutInflater().inflate(R.layout.item_dialogcal_hsv, null);
             hsvLayout.addView(view);   //将view添加到布局当中
-            TextView hsvTv = view.findViewById(R.id.item_dialogcal_hsv_tv);
+            TextView hsvTv = view.findViewById(R.id.item_dialog_cal_hsv_tv);
             hsvTv.setText(year+"");
             hsvViewList.add(hsvTv);
         }
         if (selectPos == -1) {
             selectPos = hsvViewList.size()-1;     //设置当前被选中的是最近的年份
         }
-        changeTvbg(selectPos);    //将最后一个设置为选中状态
+        changeTvBg(selectPos);    //将最后一个设置为选中状态
         setHSVClickListener();    //设置每一个View的监听事件
     }
     /** 给横向的ScrollView当中每一个TextView设置点击事件*/
@@ -126,7 +125,7 @@ public class CalendarDialog extends Dialog implements View.OnClickListener {
             view.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    changeTvbg(pos);
+                    changeTvBg(pos);
                     selectPos = pos;
                     // 获取被选中的年份，然后下面的GridView显示数据源会发生变化
                     int year = yearList.get(selectPos);
@@ -137,7 +136,7 @@ public class CalendarDialog extends Dialog implements View.OnClickListener {
     }
 
     /** 传入被选中的位置，改变此位置上的背景和文字颜色*/
-    private void changeTvbg(int selectPos) {
+    private void changeTvBg(int selectPos) {
         for (int i = 0; i < hsvViewList.size(); i++) {
             TextView tv = hsvViewList.get(i);
             tv.setBackgroundResource(R.drawable.dialog_btn_bg);
@@ -145,7 +144,7 @@ public class CalendarDialog extends Dialog implements View.OnClickListener {
         }
 
         TextView selView = hsvViewList.get(selectPos);
-        selView.setBackgroundResource(R.drawable.main_recordbtn_bg);
+        selView.setBackgroundResource(R.drawable.main_record_btn_bg);
         selView.setTextColor(Color.WHITE);
     }
 

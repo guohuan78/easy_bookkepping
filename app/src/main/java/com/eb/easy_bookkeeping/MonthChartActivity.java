@@ -12,8 +12,8 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.eb.easy_bookkeeping.adapter.ChartVPAdapter;
 import com.eb.easy_bookkeeping.db.DBManager;
-import com.eb.easy_bookkeeping.frag_chart.IncomChartFragment;
-import com.eb.easy_bookkeeping.frag_chart.OutcomChartFragment;
+import com.eb.easy_bookkeeping.frag_chart.IncomeChartFragment;
+import com.eb.easy_bookkeeping.frag_chart.OutcomeChartFragment;
 import com.eb.easy_bookkeeping.utils.CalendarDialog;
 
 import java.util.ArrayList;
@@ -31,9 +31,8 @@ public class MonthChartActivity extends AppCompatActivity {
      private int month;
     private int selectPos = -1;
     private int selectMonth =-1;
-    private List<Fragment>chartFragList;
-    private IncomChartFragment incomChartFragment;
-    private OutcomChartFragment outcomChartFragment;
+    private IncomeChartFragment incomeChartFragment;
+    private OutcomeChartFragment outcomeChartFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,34 +55,34 @@ public class MonthChartActivity extends AppCompatActivity {
     }
 
     private void initFrag() {
-        chartFragList = new ArrayList<>();
+        List<Fragment> chartFragList = new ArrayList<>();
 //        添加Fragment的对象
-        incomChartFragment = new IncomChartFragment();
-        outcomChartFragment = new OutcomChartFragment();
+        incomeChartFragment = new IncomeChartFragment();
+        outcomeChartFragment = new OutcomeChartFragment();
 //        添加数据到Fragment当中
         Bundle bundle = new Bundle();
         bundle.putInt("year",year);
         bundle.putInt("month",month);
-        incomChartFragment.setArguments(bundle);
-        outcomChartFragment.setArguments(bundle);
+        incomeChartFragment.setArguments(bundle);
+        outcomeChartFragment.setArguments(bundle);
 //        将Fragment添加到数据源当中
-        chartFragList.add(outcomChartFragment);
-        chartFragList.add(incomChartFragment);
+        chartFragList.add(outcomeChartFragment);
+        chartFragList.add(incomeChartFragment);
 //        使用适配器
         ChartVPAdapter chartVPAdapter = new ChartVPAdapter(getSupportFragmentManager(), chartFragList);
         chartVp.setAdapter(chartVPAdapter);
-//        将Fragment加载到Acitivy当中
+//        将Fragment加载到Activity当中
     }
 
     /* 统计某年某月的收支情况数据*/
     private void initStatistics(int year, int month) {
         float inMoneyOneMonth = DBManager.getSumMoneyOneMonth(year, month, 1);  //收入总钱数
         float outMoneyOneMonth = DBManager.getSumMoneyOneMonth(year, month, 0); //支出总钱数
-        int incountItemOneMonth = DBManager.getCountItemOneMonth(year, month, 1);  //收入多少笔
-        int outcountItemOneMonth = DBManager.getCountItemOneMonth(year, month, 0); //支出多少笔
+        int inCountItemOneMonth = DBManager.getCountItemOneMonth(year, month, 1);  //收入多少笔
+        int outCountItemOneMonth = DBManager.getCountItemOneMonth(year, month, 0); //支出多少笔
         dateTv.setText(year+"年"+month+"月账单");
-        inTv.setText("共"+incountItemOneMonth+"笔收入, ￥ "+inMoneyOneMonth);
-        outTv.setText("共"+outcountItemOneMonth+"笔支出, ￥ "+outMoneyOneMonth);
+        inTv.setText("共"+inCountItemOneMonth+"笔收入, ￥ "+inMoneyOneMonth);
+        outTv.setText("共"+outCountItemOneMonth+"笔支出, ￥ "+outMoneyOneMonth);
 
     }
 
@@ -109,7 +108,7 @@ public class MonthChartActivity extends AppCompatActivity {
             case R.id.chart_iv_back:
                 finish();
                 break;
-            case R.id.chart_iv_rili:
+            case R.id.chart_iv_calendar:
                 showCalendarDialog();
                 break;
             case R.id.chart_btn_in:
@@ -133,8 +132,8 @@ public class MonthChartActivity extends AppCompatActivity {
                 MonthChartActivity.this.selectPos = selPos;
                 MonthChartActivity.this.selectMonth = month;
                 initStatistics(year,month);
-                incomChartFragment.setDate(year,month);
-                outcomChartFragment.setDate(year,month);
+                incomeChartFragment.setDate(year,month);
+                outcomeChartFragment.setDate(year,month);
             }
         });
     }
@@ -142,12 +141,12 @@ public class MonthChartActivity extends AppCompatActivity {
     /* 设置按钮样式的改变  支出-0  收入-1*/
     private void setButtonStyle(int kind){
         if (kind == 0) {
-            outBtn.setBackgroundResource(R.drawable.main_recordbtn_bg);
+            outBtn.setBackgroundResource(R.drawable.main_record_btn_bg);
             outBtn.setTextColor(Color.WHITE);
             inBtn.setBackgroundResource(R.drawable.dialog_btn_bg);
             inBtn.setTextColor(Color.BLACK);
         }else if (kind == 1){
-            inBtn.setBackgroundResource(R.drawable.main_recordbtn_bg);
+            inBtn.setBackgroundResource(R.drawable.main_record_btn_bg);
             inBtn.setTextColor(Color.WHITE);
             outBtn.setBackgroundResource(R.drawable.dialog_btn_bg);
             outBtn.setTextColor(Color.BLACK);

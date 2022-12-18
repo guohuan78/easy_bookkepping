@@ -22,7 +22,7 @@
             android:textSize="18sp"
             android:textStyle="bold"/>
         <ImageView
-            android:id="@+id/chart_iv_rili"
+            android:id="@+id/chart_iv_calendar"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:src="@mipmap/it_calendar"
@@ -74,7 +74,7 @@
             android:layout_width="wrap_content"
             android:layout_height="35dp"
             android:text="@string/out"
-            android:background="@drawable/main_recordbtn_bg"
+            android:background="@drawable/main_record_btn_bg"
             android:textColor="@color/white"
             android:textStyle="bold"
             android:onClick="onClick"

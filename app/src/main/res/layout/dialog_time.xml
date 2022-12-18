@@ -23,6 +23,7 @@
             android:layout_height="wrap_content"
             android:inputType="number"
             android:maxLength="2"
+            android:hint="@string/hour"
             android:importantForAutofill="no"  />
         <TextView
             android:layout_width="wrap_content"
@@ -36,6 +37,7 @@
             android:layout_height="wrap_content"
             android:inputType="number"
             android:maxLength="2"
+            android:hint="@string/minute"
             android:importantForAutofill="no" />
     </LinearLayout>
     <LinearLayout
