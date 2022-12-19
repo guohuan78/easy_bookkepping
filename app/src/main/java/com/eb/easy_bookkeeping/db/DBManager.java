@@ -81,13 +81,6 @@ public class DBManager {
         String sql = "update typetb set typename = \"" + newTypename + "\" where typename = \"" + oldTypename + "\"";
         db.execSQL(sql);
     }
-    /*
-     * 根据传入的id，改变accounttb表当中的一条数据的备注为传入值
-     * */
-    public static void updateItemBeizhuFromAccounttbById(int id, String beizhu){
-        String sql = "update accounttb set beizhu = \"" + beizhu + "\" where id = " + id;
-        db.execSQL(sql);
-    }
     /**
      * 查询记账的表当中有几个年份信息
      * */

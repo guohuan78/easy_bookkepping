@@ -26,6 +26,12 @@ class DBOpenHelper extends SQLiteOpenHelper {
         db.execSQL(sql);
         createFoodCostSumView(db);
         createTriggerUpdateTypename(db);
+        createIndex(db);
+    }
+
+    private void createIndex(SQLiteDatabase db) {
+        String sql = "create index yearMonthKind on accounttb (year, month, kind);";
+        db.execSQL(sql);
     }
 
     private void createTriggerUpdateTypename(SQLiteDatabase db) {
